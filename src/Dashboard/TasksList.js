@@ -52,6 +52,7 @@ export default class TasksList extends Component {
   }
   handleClose() {
     this.setState({show: false});
+    this.props.onChangeTasks();
   }
 
   render() {
@@ -89,13 +90,25 @@ export default class TasksList extends Component {
             </tr>
             <tr>
               <td>
-                <TasksListsItem edit={edit} data={analyzedData[0]} />
+                <TasksListsItem
+                  edit={edit}
+                  onChangeTasks={this.props.onChangeTasks}
+                  data={analyzedData[0]}
+                />
               </td>
               <td>
-                <TasksListsItem edit={edit} data={analyzedData[1]} />
+                <TasksListsItem
+                  edit={edit}
+                  onChangeTasks={this.props.onChangeTasks}
+                  data={analyzedData[1]}
+                />
               </td>
               <td>
-                <TasksListsItem edit={edit} data={analyzedData[2]} />
+                <TasksListsItem
+                  edit={edit}
+                  onChangeTasks={this.props.onChangeTasks}
+                  data={analyzedData[2]}
+                />
               </td>
             </tr>
           </tbody>

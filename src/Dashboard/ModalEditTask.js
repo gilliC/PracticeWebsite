@@ -5,8 +5,11 @@ import {Modal} from 'react-bootstrap';
 
 import {formatDate} from '../services/functions';
 import DatePickerItem from '../components/DatePickerItem';
-import {MainButton} from '../components/common_components';
-import {ModalContainer, ModalBtnContainer} from './dashboard_components';
+import {
+  ModalContainer,
+  ModalBtnContainer,
+  ModalButton,
+} from './dashboard_components';
 
 export default class ModalEditComponent extends Component {
   constructor(props) {
@@ -73,15 +76,15 @@ export default class ModalEditComponent extends Component {
           <p className="error">{this.state.error}</p>
         </Modal.Body>
         <ModalBtnContainer>
-          <MainButton size={4} onClick={this.props.handleClose} lefty>
+          <ModalButton size={4} onClick={this.props.handleClose} lefty>
             Close
-          </MainButton>
-          <MainButton size={4} onClick={this.completeTask}>
+          </ModalButton>
+          <ModalButton MainButton size={4} onClick={this.completeTask}>
             Done
-          </MainButton>
-          <MainButton size={4} onClick={this.deleteTask}>
+          </ModalButton>
+          <ModalButton size={4} onClick={this.deleteTask}>
             Delete
-          </MainButton>
+          </ModalButton>
         </ModalBtnContainer>
       </ModalContainer>
     );

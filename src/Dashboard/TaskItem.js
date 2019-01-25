@@ -46,10 +46,12 @@ class TaskItem extends Component {
 
   deleteTaskHandler(taskId) {
     this.props.deleteTask(taskId);
+    this.props.onChangeTasks();
   }
   completeTaskHandler(date) {
     let formatedDate = formatDate(date);
     this.props.completeTask(this.props.task.id, formatedDate);
+    this.props.onChangeTasks();
   }
   onClick() {
     const {edit, isNotCompleted, isClosed} = this.state;

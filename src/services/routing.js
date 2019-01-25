@@ -1,8 +1,11 @@
 import React from 'react';
 import {Route, Switch, withRouter} from 'react-router-dom';
+import {withCookies} from 'react-cookie';
 
 import Home from '../Home/Home';
 import Dashboard from '../Dashboard/Dashboard';
+import Pomodoro from '../Pomodoro/Pomodoro';
+
 const routing = props => {
   let {location} = props.history;
   return (
@@ -15,9 +18,18 @@ const routing = props => {
       <Route
         exact
         path="/dashboard"
-        children={({match, ...rest}) => <Dashboard {...rest} />}
+        children={({match, ...rest}) => (
+          <Dashboard {...rest} cookies={props.cookies} />
+        )}
+      />
+      <Route
+        exact
+        path="/pomodoro"
+        children={({match, ...rest}) => <Pomodoro {...rest} />}
       />
     </Switch>
   );
 };
-export default withRouter(routing);
+
+const withrouter = withRouter(routing);
+export default withCookies(withrouter);

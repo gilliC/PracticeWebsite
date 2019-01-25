@@ -73,5 +73,6 @@ export const LinkContainer = styled.li`
     color: white;
     font-family: Noto Serif TC;
     text-align: center;
+    padding-bottom: 10px;
   }
 `;

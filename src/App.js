@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
+import {CookiesProvider} from 'react-cookie';
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
@@ -11,6 +12,7 @@ import {
   faArrowRight,
   faHome,
   faChartPie,
+  faClock,
 } from '@fortawesome/free-solid-svg-icons';
 
 import store from './services/configureStore';
@@ -21,7 +23,16 @@ import {AppSideContainr, SidebarPush} from './app_components';
 
 import './App.css';
 
-library.add(fab, faBars, faEdit, faPlus, faArrowRight, faHome, faChartPie);
+library.add(
+  fab,
+  faBars,
+  faEdit,
+  faPlus,
+  faArrowRight,
+  faHome,
+  faChartPie,
+  faClock,
+);
 class App extends Component {
   constructor(props) {
     super(props);
@@ -38,18 +49,20 @@ class App extends Component {
     const {closed, store} = this.state;
     let size = closed ? 0.5 : 2;
     return (
-      <Provider store={store}>
-        <Router>
-          <ContainerRow align="initial">
-            <SidebarPush left size={size} onClick={this.clickedSB}>
-              <Sidebar closed={closed} />
-            </SidebarPush>
-            <AppSideContainr right size={11 - size}>
-              <Routing />
-            </AppSideContainr>
-          </ContainerRow>
-        </Router>
-      </Provider>
+      <CookiesProvider>
+        <Provider store={store}>
+          <Router>
+            <ContainerRow align="initial">
+              <SidebarPush left size={size} onClick={this.clickedSB}>
+                <Sidebar closed={closed} />
+              </SidebarPush>
+              <AppSideContainr right size={11 - size}>
+                <Routing />
+              </AppSideContainr>
+            </ContainerRow>
+          </Router>
+        </Provider>
+      </CookiesProvider>
     );
   }
 }

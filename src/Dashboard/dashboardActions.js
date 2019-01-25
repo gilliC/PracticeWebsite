@@ -1,6 +1,7 @@
-import {tasksRef} from '../services/fire';
-import {FETCH_TASKS} from '../services/constants';
+import Fire, {tasksRef} from '../services/fire';
+import {FETCH_TASKS, FETCH_PERMISSION} from '../services/constants';
 
+//////////////     TASKS     /////////////
 export const addTask = newTask => async dispatch => {
   tasksRef
     .push()
@@ -31,17 +32,42 @@ export const deleteTask = taskId => async dispatch => {
 };
 
 export const fetchTasks = () => async dispatch => {
-  tasksRef.on('value', snapshot => {
-    let tasks = Object.values(snapshot.val());
-    let ids = Object.keys(snapshot.val());
-    let payload = [];
-    tasks.map((task, id) => {
-      payload.push({id: ids[id], ...task});
-      return task;
+  tasksRef.once(
+    'value',
+    snapshot => {
+      let tasks = Object.values(snapshot.val());
+      let ids = Object.keys(snapshot.val());
+      let payload = [];
+      tasks.map((task, id) => {
+        payload.push({id: ids[id], ...task});
+        return task;
+      });
+      dispatch({
+        type: FETCH_TASKS,
+        payload: payload,
+      });
+    },
+    function(err) {
+      console.log(err);
+    },
+  );
+};
+
+//////////////     PERMISSIONS     /////////////
+export const fetchPermission = user => async dispatch => {
+  Fire.auth()
+    .signInWithEmailAndPassword(user.email, user.password)
+    .then(val => {
+      dispatch({
+        type: FETCH_PERMISSION,
+        payload: {type: true, error: ''},
+      });
+    })
+    .catch(error => {
+      dispatch({
+        type: FETCH_PERMISSION,
+        payload: {type: false, error: error.message},
+      });
     });
-    dispatch({
-      type: FETCH_TASKS,
-      payload: payload,
-    });
-  });
+  return;
 };

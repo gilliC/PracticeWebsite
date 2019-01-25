@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
-import dashboardReducer from '../Dashboard/dashboardTasksReducer';
+import tasksReducer from '../Dashboard/reducers/reducerTasks';
+import permissionReducer from '../Dashboard/reducers/reducerPermission';
 
 export default combineReducers({
-  tasks: dashboardReducer,
+  tasks: tasksReducer,
+  isPermitted: permissionReducer,
 });

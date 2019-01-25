@@ -6,10 +6,14 @@ import {parseToMoment} from '../services/functions';
 import {getWithOpacity, secondaryColor} from '../app_components';
 import {Title, Container} from '../components/common_components';
 
+const dataArrayEnums = {
+  labels: 0,
+  values: 1,
+};
+
 export default class TasksTimeLine extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {data: this.props.data};
   }
 
@@ -23,17 +27,28 @@ export default class TasksTimeLine extends Component {
     let completionObject = {};
     let month;
     for (let i = 0; i < tasksList.length; i++) {
-      month = parseToMoment(tasksList[i].creationDate).format('MM/YYYY');
+      month = parseToMoment(tasksList[i].creationDate).format('YYYY  MM');
       if (createdObject[month] >= 1) createdObject[month]++;
       else createdObject[month] = 1;
       if (!completionObject[month] >= 1) completionObject[month] = 0;
       if (tasksList[i].completionDate) {
-        month = parseToMoment(tasksList[i].completionDate).format('MM/YYYY');
+        month = parseToMoment(tasksList[i].completionDate).format('YYYY  MM');
         if (completionObject[month] >= 1) completionObject[month]++;
         else completionObject[month] = 1;
       }
     }
+    createdObject = this.sortData(createdObject);
+    completionObject = this.sortData(completionObject);
     return [createdObject, completionObject];
+  }
+  sortData(data) {
+    let ordered = {};
+    Object.keys(data)
+      .sort()
+      .forEach(function(key) {
+        ordered[key] = data[key];
+      });
+    return ordered;
   }
 
   getColors(color) {
@@ -43,33 +58,36 @@ export default class TasksTimeLine extends Component {
     arr[2] = getWithOpacity(color, 0.3);
     return arr;
   }
-
+  setDataForDisplay(tasks) {
+    let displayedData = [];
+    const {labels, values} = dataArrayEnums;
+    displayedData[labels] = Object.keys(tasks).map(date => {
+      return parseToMoment(date, 'YYYY MM').format('MMMM YYYY');
+    });
+    displayedData[values] = Object.values(tasks);
+    return displayedData;
+  }
   render() {
     let data = this.calculateData();
-    console.log(data);
-    let createdTasks = [];
-    let complitedTasks = [];
-    createdTasks[0] = Object.keys(data[0]);
-    createdTasks[1] = Object.values(data[0]);
-    complitedTasks[0] = Object.keys(data[1]);
-    complitedTasks[1] = Object.values(data[1]);
-
+    const {labels, values} = dataArrayEnums;
+    let createdTasks = this.setDataForDisplay(data[labels]);
+    let complitedTasks = this.setDataForDisplay(data[values]);
     let createdColoring = this.getColors('primaryColor');
     let completedColoring = this.getColors('tertiaryColor');
     let chartData = {
-      labels: createdTasks[0],
+      labels: createdTasks[labels],
       datasets: [
         {
           label: 'Created',
-          data: createdTasks[1],
+          data: createdTasks[values],
           backgroundColor: completedColoring[0],
           borderColor: completedColoring[1],
           hoverBackgroundColor: completedColoring[2],
           borderWidth: 3,
         },
         {
-          label: 'Complited',
-          data: complitedTasks[1],
+          label: 'Completed',
+          data: complitedTasks[values],
           backgroundColor: createdColoring[0],
           borderColor: createdColoring[1],
           hoverBackgroundColor: createdColoring[2],

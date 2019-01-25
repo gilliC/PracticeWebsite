@@ -4,7 +4,11 @@ import {Modal} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import {primaryColor, secondaryColor, getWithOpacity} from '../app_components';
-import {ColinRow, ContainerRow} from '../components/common_components';
+import {
+  ColinRow,
+  ContainerRow,
+  MainButton,
+} from '../components/common_components';
 
 ///////////// ANIMATIONS /////////////
 
@@ -23,7 +27,7 @@ export const DashboardContainer = styled.div`
   float: ${props => props.float || 'none'};
 `;
 
-export const RightSide = styled(ColinRow)`
+export const DashboardSecondPart = styled(ColinRow)`
   margin-right: 30px;
   margin-top: 20px;
 `;
@@ -121,6 +125,11 @@ export const Task = styled.li`
     }
     h4{font-size:18px;}
   }
+`;
+///////////// INPUTS /////////////
+export const ModalButton = styled(MainButton)`
+  width: ${props => (props.size ? (100 / 12) * props.size + '%' : '100%')};
+  margin-left: ${props => (props.lefty ? `0` : `5px`)};
 `;
 ///////////// ICONS /////////////
 

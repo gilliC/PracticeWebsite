@@ -15,6 +15,7 @@ export default props => {
       <HidingComponent hide={props.closed}>
         <Link href="/" title="Home" icon="home" />
         <Link href="/dashboard" title="Dashboard" icon="chart-pie" />
+        <Link href="/pomodoro" title="Pomodoro" icon="clock" />
       </HidingComponent>
     </SideBarContainer>
   );

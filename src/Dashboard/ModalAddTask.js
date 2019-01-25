@@ -7,8 +7,12 @@ import moment from 'moment';
 import {addTask} from './dashboardActions';
 import {formatDate} from '../services/functions';
 import DatePickerItem from '../components/DatePickerItem';
-import {MainInput, MainButton} from '../components/common_components';
-import {ModalContainer, ModalBtnContainer} from './dashboard_components';
+import {MainInput} from '../components/common_components';
+import {
+  ModalContainer,
+  ModalBtnContainer,
+  ModalButton,
+} from './dashboard_components';
 
 class ModalAddComponent extends Component {
   constructor(props) {
@@ -86,9 +90,9 @@ class ModalAddComponent extends Component {
           <p className="error">{error}</p>
         </Modal.Body>
         <ModalBtnContainer>
-          <MainButton size={12} onClick={this.addTask} lefty>
+          <ModalButton size={12} onClick={this.addTask} lefty>
             Add
-          </MainButton>
+          </ModalButton>
         </ModalBtnContainer>
       </ModalContainer>
     );

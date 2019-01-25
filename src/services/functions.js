@@ -1,18 +1,26 @@
 import moment from 'moment';
 
-export function formatDate(date) {
+export function formatDate(date, format = 'DD/MM/YYYY') {
   let mdate = parseToMoment(date);
-  return moment(mdate).format('DD/MM/YYYY');
+  return moment(mdate).format(format);
 }
 
-export function parseToMoment(date) {
-  return moment(date, 'DD/MM/YYYY');
+export function parseToMoment(date, format = 'DD/MM/YYYY', lan = 'en') {
+  let momentDate = moment(date, format, lan);
+  if (momentDate.isValid()) return momentDate;
+  let error = {
+    error: 'Date is not valid. Check if there is a problem in the format',
+  };
+  throw error;
 }
 
-export function parseDate(str) {
-  const m = moment(str, 'DD/MM/YYYY', 'en', true);
-  if (m.isValid()) {
-    return m.toDate();
+export function parseDate(date, format = 'DD/MM/YYYY', lan = 'en') {
+  const momentDate = moment(date, format, lan, true);
+  if (momentDate.isValid()) {
+    return momentDate.toDate();
   }
-  return undefined;
+  let error = {
+    error: 'Date is not valid. Check if there is a problem in the format',
+  };
+  throw error;
 }

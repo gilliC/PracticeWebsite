@@ -57,6 +57,7 @@ export const Title = styled.h1`
   text-align: ${props => props.textAlign || 'center'};
   font-family: ${props => props.fontFamily || 'Abel'};
   color: ${props => props.color || 'black'};
+  cursor: default;
 `;
 
 /////////////// INPUTS /////////////
@@ -76,7 +77,6 @@ export const MainInput = styled.input`
   }
 `;
 export const MainButton = styled.button`
-  width: ${props => (props.size ? (100 / 12) * props.size + '%' : '100%')};
   background-color: white;
   color: ${primaryColor};
   margin-bottom: 10px;
@@ -87,7 +87,6 @@ export const MainButton = styled.button`
   font-family: Abel;
   font-size: 15px;
   font-weight: bold;
-  margin-left: ${props => (props.lefty ? `0` : `5px`)};
   :focus {
     outline: 0 !important;
   }
@@ -97,6 +96,7 @@ export const MainButton = styled.button`
     transition: all 0.5s;
   }
 `;
+
 /////////////// CAROUSEL /////////////
 export const ComponentItem = ({component}) => {
   return <div>{component} </div>;

@@ -12,6 +12,7 @@ export default props => {
             <TaskItem
               edit={props.edit}
               task={task}
+              onChangeTasks={props.onChangeTasks}
               key={task.title}
               disabled={props.edit ? '' : 'disabled'}
             />

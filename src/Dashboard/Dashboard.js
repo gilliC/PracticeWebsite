@@ -2,35 +2,66 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {fetchTasks} from './dashboardActions';
+import {fetchPermission, fetchTasks} from './dashboardActions';
 import {ColinRow} from '../components/common_components';
-import {RightSide} from './dashboard_components';
+import {DashboardSecondPart} from './dashboard_components';
 import TasksList from './TasksList';
 import Carousel from '../components/Carousel';
 import PieChart from './TasksPieChart';
 import TimelineBar from './TasksTimelineChart';
+import LogIn from './LogIn';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {data: []};
+    let initialUser = {email: '11@gmail.com', password: '123'};
+    const user = props.cookies.get('user') || initialUser;
+    this.state = {
+      data: [],
+      isPermitted: false,
+      user: user,
+      isPermittedError: '',
+    };
+    this.logIn = this.logIn.bind(this);
+    this.onChangeTasks = this.onChangeTasks.bind(this);
   }
   componentWillMount() {
     this.props.fetchTasks();
+    this.props.fetchPermission(this.state.user);
   }
-  componentWillReceiveProps({tasks}) {
-    const {data} = this.state;
-    if (data !== tasks) {
-      this.setState({data: tasks});
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+      this.setState({
+        data: nextProps.tasks,
+        isPermitted: nextProps.isPermitted,
+        user: nextProps.user,
+        isPermittedError: nextProps.isPermittedError,
+      });
     }
   }
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps !== this.props || nextState !== this.state) return true;
     return false;
   }
-
+  onChangeTasks() {
+    this.props.fetchTasks();
+  }
+  logIn(user) {
+    let userJSON = JSON.stringify(user);
+    this.props.cookies.set('user', userJSON, {path: '/'});
+    this.props.fetchPermission(user);
+  }
   render() {
-    let {data} = this.state;
+    let {data, isPermitted, isPermittedError} = this.state;
+    let secondPart = (
+      <LogIn
+        logIn={this.lojIn}
+        errors={isPermittedError}
+        cookies={this.props.cookies}
+      />
+    );
+    if (isPermitted)
+      secondPart = <TasksList data={data} onChangeTasks={this.onChangeTasks} />;
     return (
       <div>
         <ColinRow size={12}>
@@ -39,26 +70,35 @@ class Dashboard extends Component {
             <TimelineBar data={data} />
           </Carousel>
         </ColinRow>
-        <RightSide size={12} display="block" float="right">
-          <TasksList data={data} />
-        </RightSide>
+        <DashboardSecondPart size={12} display="block" float="right">
+          {secondPart}
+        </DashboardSecondPart>
       </div>
     );
   }
 }
-const mapStateToProps = ({tasks}) => {
+const mapStateToProps = ({tasks, isPermitted, user}) => {
   return {
     tasks: tasks,
+    isPermitted: isPermitted.type,
+    isPermittedError: isPermitted.error,
+    user: user,
   };
 };
 
 export default connect(
   mapStateToProps,
-  {fetchTasks},
+  {fetchTasks, fetchPermission},
 )(Dashboard);
 
 Dashboard.propTypes = {
   fetchTasks: PropTypes.func,
+  fetchPermission: PropTypes.func,
+  isPermitted: PropTypes.bool,
+  user: PropTypes.shape({
+    mail: PropTypes.string,
+    password: PropTypes.string,
+  }),
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
