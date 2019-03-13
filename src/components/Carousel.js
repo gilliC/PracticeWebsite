@@ -1,18 +1,12 @@
 import React, {Component} from 'react';
 
-import {
-  FadeInContainer,
-  ColinRow,
-  ComponentItem,
-  CarouselRow,
-  Arrow,
-} from './common_components';
+import {ColinRow, ComponentItem, CarouselRow, Arrow} from './common_components';
+import TransitionContainer from './TransitionContainer';
 
 class Carousel extends Component {
   constructor(props) {
     super(props);
     this.state = {components: this.props.children, componentIndex: 0};
-    this.changeState = () => this.setState({show: !this.state.show});
     this.onClick = this.onClick.bind(this);
   }
 
@@ -23,14 +17,6 @@ class Carousel extends Component {
         component = this.state.components[id];
       else component = this.state.components;
       return <ComponentItem component={component} index={id} key={id} />;
-    }
-  }
-  componentDidMount() {
-    this.changeState();
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.componentIndex !== prevState.componentIndex) {
-      this.changeState();
     }
   }
   componentWillReceiveProps({children}) {
@@ -57,7 +43,6 @@ class Carousel extends Component {
   }
 
   render() {
-    const {show} = this.state;
     return (
       <CarouselRow>
         <ColinRow
@@ -68,13 +53,9 @@ class Carousel extends Component {
           <Arrow icon="arrow-right" rotation={180} />
         </ColinRow>
         <ColinRow size={10}>
-          <FadeInContainer
-            in={show}
-            timeout={1000}
-            transformInitial="translateX(5px)"
-            onExit={this.changeState}>
+          <TransitionContainer transformInitial="translateX(5px)">
             {this.showChild(this.state.componentIndex)}
-          </FadeInContainer>
+          </TransitionContainer>
         </ColinRow>
         <ColinRow
           size={1}

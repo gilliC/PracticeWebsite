@@ -5,6 +5,7 @@ import {withCookies} from 'react-cookie';
 import Home from '../Home/Home';
 import Dashboard from '../Dashboard/Dashboard';
 import Pomodoro from '../Pomodoro/Pomodoro';
+import ColorsConverter from '../ColorsConverter/ColorsConverter';
 
 const routing = props => {
   let {location} = props.history;
@@ -26,6 +27,11 @@ const routing = props => {
         exact
         path="/pomodoro"
         children={({match, ...rest}) => <Pomodoro {...rest} />}
+      />
+      <Route
+        exact
+        path="/colorsconverter"
+        children={({match, ...rest}) => <ColorsConverter {...rest} />}
       />
     </Switch>
   );

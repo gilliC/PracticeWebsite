@@ -1,9 +1,10 @@
-import Fire, {tasksRef} from '../services/fire';
+import Fire, {databaseRef} from '../services/fire';
 import {FETCH_TASKS, FETCH_PERMISSION} from '../services/constants';
 
 //////////////     TASKS     /////////////
 export const addTask = newTask => async dispatch => {
-  tasksRef
+  databaseRef
+    .child('tasks')
     .push()
     .set(newTask)
     .catch(error => {
@@ -13,26 +14,35 @@ export const addTask = newTask => async dispatch => {
 
 export const completeTask = (taskId, date = undefined) => async dispatch => {
   if (date !== undefined) {
-    tasksRef.child(taskId).update({
-      isNotCompleted: false,
-      completionDate: date,
-    });
+    databaseRef
+      .child('tasks')
+      .child(taskId)
+      .update({
+        isNotCompleted: false,
+        completionDate: date,
+      });
   }
 };
 
 export const undoTask = taskId => async dispatch => {
-  tasksRef.child(taskId).update({
-    isNotCompleted: true,
-    completionDate: '',
-  });
+  databaseRef
+    .child('tasks')
+    .child(taskId)
+    .update({
+      isNotCompleted: true,
+      completionDate: '',
+    });
 };
 
 export const deleteTask = taskId => async dispatch => {
-  tasksRef.child(taskId).remove();
+  databaseRef
+    .child('tasks')
+    .child(taskId)
+    .remove();
 };
 
-export const fetchTasks = () => async dispatch => {
-  tasksRef.once(
+export const fetchTasksLoggedIn = () => async dispatch => {
+  databaseRef.child('tasks').once(
     'value',
     snapshot => {
       let tasks = Object.values(snapshot.val());
@@ -51,6 +61,20 @@ export const fetchTasks = () => async dispatch => {
       console.log(err);
     },
   );
+};
+export const fetchTasksNotLogged = () => async dispatch => {
+  databaseRef
+    .child('tasks')
+    .child('isNotCompleted')
+    .once(
+      'value',
+      snapshot => {
+        console.log(snapshot.val());
+      },
+      function(err) {
+        console.log(err);
+      },
+    );
 };
 
 //////////////     PERMISSIONS     /////////////

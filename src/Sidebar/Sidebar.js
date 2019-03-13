@@ -16,6 +16,7 @@ export default props => {
         <Link href="/" title="Home" icon="home" />
         <Link href="/dashboard" title="Dashboard" icon="chart-pie" />
         <Link href="/pomodoro" title="Pomodoro" icon="clock" />
+        <Link href="/colorsconverter" title="Colors Converter" icon="palette" />
       </HidingComponent>
     </SideBarContainer>
   );

@@ -2,7 +2,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {fetchPermission, fetchTasks} from './dashboardActions';
+import {
+  fetchPermission,
+  fetchTasksLoggedIn,
+  fetchTasksNotLogged,
+} from './dashboardActions';
 import {ColinRow} from '../components/common_components';
 import {DashboardSecondPart} from './dashboard_components';
 import TasksList from './TasksList';
@@ -26,7 +30,7 @@ class Dashboard extends Component {
     this.onChangeTasks = this.onChangeTasks.bind(this);
   }
   componentWillMount() {
-    this.props.fetchTasks();
+    this.props.fetchTasksNotLogged();
     this.props.fetchPermission(this.state.user);
   }
   componentWillReceiveProps(nextProps) {
@@ -44,7 +48,7 @@ class Dashboard extends Component {
     return false;
   }
   onChangeTasks() {
-    this.props.fetchTasks();
+    this.props.fetchTasksLoggedIn();
   }
   logIn(user) {
     let userJSON = JSON.stringify(user);
@@ -55,7 +59,7 @@ class Dashboard extends Component {
     let {data, isPermitted, isPermittedError} = this.state;
     let secondPart = (
       <LogIn
-        logIn={this.lojIn}
+        logIn={this.logIn}
         errors={isPermittedError}
         cookies={this.props.cookies}
       />
@@ -88,7 +92,7 @@ const mapStateToProps = ({tasks, isPermitted, user}) => {
 
 export default connect(
   mapStateToProps,
-  {fetchTasks, fetchPermission},
+  {fetchTasksLoggedIn, fetchTasksNotLogged, fetchPermission},
 )(Dashboard);
 
 Dashboard.propTypes = {

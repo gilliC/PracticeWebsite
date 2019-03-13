@@ -8,6 +8,5 @@ var config = {
   messagingSenderId: '413309780759',
 };
 var fire = firebase.initializeApp(config);
-const databaseRef = firebase.database().ref();
-export const tasksRef = databaseRef.child('tasks');
+export const databaseRef = firebase.database().ref();
 export default fire;

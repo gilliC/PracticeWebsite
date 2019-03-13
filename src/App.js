@@ -13,6 +13,7 @@ import {
   faHome,
   faChartPie,
   faClock,
+  faPalette,
 } from '@fortawesome/free-solid-svg-icons';
 
 import store from './services/configureStore';
@@ -32,6 +33,7 @@ library.add(
   faHome,
   faChartPie,
   faClock,
+  faPalette,
 );
 class App extends Component {
   constructor(props) {
