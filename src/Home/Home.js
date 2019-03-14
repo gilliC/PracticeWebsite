@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {primaryColor} from '../app_components';
+import {Container} from '../components/common_components';
 
 export default props => {
   return (
@@ -15,8 +16,7 @@ export default props => {
   );
 };
 
-const HomeContainer = styled.div`
-  margin-top: 50px;
+const HomeContainer = styled(Container)`
   text-align: center;
   height: 100%;
   overflow: hidden;

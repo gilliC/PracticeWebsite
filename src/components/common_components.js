@@ -54,6 +54,7 @@ export const BoldText = styled.span`
 export const MainInput = styled.input`
   height: 30px;
   width: ${props => (props.size ? (100 / 12) * props.size + '%' : '100%')};
+  font-family: ${props => props.fontFamily || 'Abel'};
   color: ${props => props.color || primaryColor};
   background-color: white;
   margin-left: 0;
@@ -111,6 +112,8 @@ export const MainButtonGroup = styled(ToggleButtonGroup)`
 export const MainBGSingleButton = styled(ToggleButton)`
   width: ${props => (props.size ? 100 / props.size + '%' : '100%')};
   height: ${props => props.height || '75px'};
+  font-size: ${props => props.fontSize || '1.5em'};
+  font-family: ${props => props.fontFamily || 'Abel'};
   color: ${props => props.color || primaryColor};
   border: 2px solid ${primaryColor};
   border-color: ${props => props.color || primaryColor};
@@ -120,7 +123,6 @@ export const MainBGSingleButton = styled(ToggleButton)`
   display: -webkit-flex;
   -webkit-align-items: center;
   flex-direction: column;
-
   :hover {
     border-color: transparent;
     outline: 0 !important;

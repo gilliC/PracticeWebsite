@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import transition from 'styled-transition-group';
 import {primaryColor} from '../app_components';
 import React from 'react';
 import {
@@ -10,7 +9,7 @@ import {
 } from '../components/common_components';
 import {lightOrDark} from './convertingFunctions';
 
-export const BackgroundColorDiv = styled.div`
+export const BackgroundColorHalfDiv = styled.div`
   height: 150px;
   width: 350px;
   background-color: ${props => props.bgColor || primaryColor};
@@ -25,6 +24,22 @@ export const BackgroundColorDiv = styled.div`
   border-top-left-radius: ${props => (props.left ? '90px' : 'none')};
   transition: all 2s;
 `;
+export const BackgroundColorFullDiv = styled.div`
+  height: 150px;
+  width: 700px;
+  background-color: ${props => props.bgColor || primaryColor};
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  display: -webkit-flex;
+  -webkit-align-items: center;
+  border-bottom-right-radius: 90px;
+  border-top-right-radius: 90px;
+  border-bottom-left-radius: 90px;
+  border-top-left-radius: 90px;
+  transition: all 2s;
+`;
+
 export const ColorsConverterInput = props => {
   if (!props.color) return <InputForColor {...props} />;
   if (lightOrDark(props.color) === 'super light')
@@ -35,7 +50,7 @@ export const ColorsConverterInput = props => {
 };
 
 const InputForColor = styled.input`
-  width: 33%;
+  width: 50%;
   padding: 15px;
   color: ${props => props.color || primaryColor};
   font-size: ${props => props.fontSize || '2em'};
@@ -54,15 +69,15 @@ const InputForLightColor = styled(InputForColor)`
   color: black;
 `;
 export const ColorsConverterTitle = props => {
-  if (lightOrDark(props.color) === 'dark') {
+  if (lightOrDark(props.color) === 'super light') {
     return (
-      <Title {...props} color="white">
+      <Title {...props} color="black">
         {props.children}
       </Title>
     );
   } else
     return (
-      <Title {...props} color="black">
+      <Title {...props} color="white">
         {props.children}
       </Title>
     );
@@ -101,18 +116,4 @@ const BiggerTextStyle = styled(MainText)`
 
 export const ColorsConverterButtonGroup = styled(MainButtonGroup)`
   margin-top: 30px;
-`;
-export const ColorsConverterFadeIn = transition.div.attrs({
-  timeout: 1000,
-})`
-  &:enter { opacity: 0.01; }
-  &:enter-active {
-    opacity: 1;
-    transition: opacity 1000ms ease-in;
-  }
-  &:exit { opacity: 1; }
-  &:exit-active {
-    opacity: 0.01;
-    transition: opacity 800ms ease-in;
-  }
 `;

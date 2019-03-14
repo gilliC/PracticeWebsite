@@ -20,7 +20,6 @@ export default class TransitionContainer extends React.Component {
   }
   render() {
     const {show} = this.state;
-    console.log(this.props);
     switch (this.props.type) {
       case 'TranslateX':
         return (
@@ -62,6 +61,7 @@ const TranslateX = props => {
 
 const FadeInTrans = transition.div`
 height:${props => props.height || '-webkit-fill-available'};
+width:${props => props.width || '-webkit-fill-available'};
   &:enter { opacity: 0.01; }
   &:enter-active {
     opacity: 1;
@@ -78,6 +78,7 @@ height:${props => props.height || '-webkit-fill-available'};
 
 const TranslatexTrans = transition.div`
 height:${props => props.height || '-webkit-fill-available'};
+width:${props => props.width || '-webkit-fill-available'};
   &:enter {
     opacity: 0.01;
     transform: ${props => props.transformInitial || 'translateX(0)'}

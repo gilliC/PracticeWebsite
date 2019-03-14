@@ -3,13 +3,12 @@ import {Container, MainBGSingleButton} from '../components/common_components';
 import TransitionContainer from '../components/TransitionContainer';
 import {ColorsConverterButtonGroup} from './colorsconverter_components';
 import FromHexToXTermComponent from './FromHexToXTerm';
+import FromHexToRGBANHSL from './FromHexToRGBAnHSL';
 
 export default class ColorsConverter extends Component {
   constructor(props, context) {
     super(props, context);
-
     this.handleChange = this.handleChange.bind(this);
-
     this.state = {
       value: 1,
     };
@@ -26,10 +25,10 @@ export default class ColorsConverter extends Component {
         component = <FromHexToXTermComponent />;
         break;
       case 2:
-        component = <h1>2</h1>;
+        component = <FromHexToRGBANHSL type="RGBA" key={1} />;
         break;
       default:
-        component = <h1>3</h1>;
+        component = <FromHexToRGBANHSL type="HSL" key={2} />;
         break;
     }
     return (
@@ -39,14 +38,14 @@ export default class ColorsConverter extends Component {
           name="tbg"
           defaultValue={1}
           onChange={this.handleChange}>
-          <MainBGSingleButton value={1} name="1" size={3}>
-            Convert from Hex to XTerm
+          <MainBGSingleButton value={1} name="1" size={3} fontSize="1.75em">
+            Hex to XTerm
           </MainBGSingleButton>
-          <MainBGSingleButton value={2} name="2" size={3}>
-            Option 2
+          <MainBGSingleButton value={2} name="2" size={3} fontSize="1.75em">
+            Hex to RGBA
           </MainBGSingleButton>
-          <MainBGSingleButton value={3} name="3" size={3}>
-            Option 3
+          <MainBGSingleButton value={3} name="3" size={3} fontSize="1.75em">
+            Hex to HSL
           </MainBGSingleButton>
         </ColorsConverterButtonGroup>
         <TransitionContainer type="TranslateX">{component}</TransitionContainer>
