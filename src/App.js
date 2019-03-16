@@ -14,10 +14,11 @@ import {
   faChartPie,
   faClock,
   faPalette,
+  faNewspaper,
 } from '@fortawesome/free-solid-svg-icons';
 
 import store from './services/configureStore';
-import Sidebar from './Sidebar/Sidebar';
+import Sidebar from './components/Sidebar/Sidebar';
 import Routing from './services/routing';
 import {ContainerRow} from './components/common_components';
 import {AppSideContainr, SidebarPush} from './app_components';
@@ -34,6 +35,7 @@ library.add(
   faChartPie,
   faClock,
   faPalette,
+  faNewspaper,
 );
 class App extends Component {
   constructor(props) {

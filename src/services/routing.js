@@ -2,10 +2,11 @@ import React from 'react';
 import {Route, Switch, withRouter} from 'react-router-dom';
 import {withCookies} from 'react-cookie';
 
-import Home from '../Home/Home';
-import Dashboard from '../Dashboard/Dashboard';
-import Pomodoro from '../Pomodoro/Pomodoro';
-import ColorsConverter from '../ColorsConverter/ColorsConverter';
+import Home from '../screens/Home/Home';
+import Articles from '../screens/Articles/Articles';
+import Dashboard from '../screens/Dashboard/Dashboard';
+import Pomodoro from '../screens/Pomodoro/Pomodoro';
+import ColorsConverter from '../screens/ColorsConverter/ColorsConverter';
 
 const routing = props => {
   let {location} = props.history;
@@ -16,6 +17,12 @@ const routing = props => {
         path="/"
         children={({match, ...rest}) => <Home {...rest} />}
       />
+      <Route
+        exact
+        path="/Articles"
+        children={({match, ...rest}) => <Articles {...rest} />}
+      />
+
       <Route
         exact
         path="/dashboard"
