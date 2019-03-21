@@ -6,4 +6,3 @@
 Converts from Hex to xTerm | RGBA | HSL
 <br />
 ![color converter screenshot](./src/drawable/imgsForREADME/screenshotcolorconverter.png?raw=true)
-
