@@ -7,7 +7,7 @@ import LinksList from './ArticlesList';
 import {LinksContainer, LinksListContainer} from './articles_components';
 import {ColinRow} from '../../components/common_components';
 
-class Articles extends Component {
+class Bookmark extends Component {
   render() {
     const {activeList} = this.props;
     return (
@@ -31,9 +31,9 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   {},
-)(Articles);
+)(Bookmark);
 
-Articles.propTypes = {
+Bookmark.propTypes = {
   changeActiveItem: PropTypes.func,
   activeItem: PropTypes.shape({
     item: PropTypes.shape({

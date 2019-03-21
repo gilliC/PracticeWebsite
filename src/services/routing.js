@@ -3,7 +3,7 @@ import {Route, Switch, withRouter} from 'react-router-dom';
 import {withCookies} from 'react-cookie';
 
 import Home from '../screens/Home/Home';
-import Articles from '../screens/Articles/Articles';
+import Bookmark from '../screens/Bookmark/Bookmark';
 import Dashboard from '../screens/Dashboard/Dashboard';
 import Pomodoro from '../screens/Pomodoro/Pomodoro';
 import ColorsConverter from '../screens/ColorsConverter/ColorsConverter';
@@ -19,8 +19,8 @@ const routing = props => {
       />
       <Route
         exact
-        path="/Articles"
-        children={({match, ...rest}) => <Articles {...rest} />}
+        path="/bookmark"
+        children={({match, ...rest}) => <Bookmark {...rest} />}
       />
 
       <Route
