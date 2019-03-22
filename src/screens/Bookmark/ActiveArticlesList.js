@@ -6,7 +6,7 @@ import {ListActiveTitle} from './articles_components';
 import TransitionContainer from '../../components/TransitionContainer';
 
 export default props => {
-  let links = this.props.activeList.articles.map(article => {
+  let links = props.activeList.articles.map(article => {
     return <ArticleLink article={article} key={article.title} />;
   });
   return (
@@ -17,7 +17,7 @@ export default props => {
       <Container>
         <ColinRow>
           <ListActiveTitle fontFamily="Abril Fatface">
-            {this.props.activeList.title}
+            {props.activeList.title}
           </ListActiveTitle>
           {links}
         </ColinRow>
