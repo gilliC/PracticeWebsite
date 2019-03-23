@@ -132,9 +132,6 @@ export const MainBGSingleButton = styled(ToggleButton)`
   }
 `;
 /////////////// CAROUSEL /////////////
-export const ComponentItem = ({component}) => {
-  return <div>{component} </div>;
-};
 
 export const CarouselRow = styled.div`
   min-width: 400px;

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {ColinRow, ComponentItem, CarouselRow, Arrow} from './common_components';
+import {ColinRow, CarouselRow, Arrow} from './common_components';
 import TransitionContainer from './TransitionContainer';
 
 class Carousel extends Component {
@@ -10,15 +10,6 @@ class Carousel extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  showChild(id) {
-    if (this.props.children !== undefined) {
-      let component;
-      if (Array.isArray(this.state.components))
-        component = this.state.components[id];
-      else component = this.state.components;
-      return <ComponentItem component={component} index={id} key={id} />;
-    }
-  }
   componentWillReceiveProps({children}) {
     this.setState({
       components: children,
@@ -56,7 +47,8 @@ class Carousel extends Component {
           <TransitionContainer
             transformInitial="translateX(5px)"
             height="initial">
-            {this.showChild(this.state.componentIndex)}
+            {this.props.children &&
+              this.props.children[this.state.componentIndex]}
           </TransitionContainer>
         </ColinRow>
         <ColinRow

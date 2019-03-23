@@ -34,8 +34,6 @@ class Dashboard extends Component {
     this.props.fetchPermission(this.state.user);
   }
   componentWillReceiveProps(nextProps) {
-    if (this.props.tasks.length === 0 && nextProps.isPermitted)
-      this.props.fetchTasksLoggedIn();
     if (this.props !== nextProps) {
       this.setState({
         data: nextProps.tasks,
@@ -44,6 +42,8 @@ class Dashboard extends Component {
         isPermittedError: nextProps.isPermittedError,
       });
     }
+    if (this.props.tasks.length === 0 && nextProps.isPermitted)
+      this.props.fetchTasksLoggedIn();
   }
   shouldComponentUpdate(nextProps, nextState) {
     if (nextProps !== this.props || nextState !== this.state) return true;

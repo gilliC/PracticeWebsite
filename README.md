@@ -1,7 +1,12 @@
 # A simple website
 Where I'm trying new things 
+## Dashboard
+For tracking my tasks, using Redux & Firebase
+<br />
+<br />
+![dashboard gif](./src/drawable/imgsForREADME/gifdashboard.gif?raw=true)
 ## Color Converter 
- Using React **Context API** & **Hooks**
+Using React **Context API** & **Hooks**
 <br />
 Converts from Hex to xTerm | RGBA | HSL
 <br />

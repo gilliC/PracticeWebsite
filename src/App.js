@@ -55,7 +55,7 @@ class App extends Component {
     return (
       <CookiesProvider>
         <Provider store={store}>
-          <Router>
+          <Router basename={process.env.PUBLIC_URL}>
             <ContainerRow align="initial">
               <SidebarPush left size={size} onClick={this.clickedSB}>
                 <Sidebar closed={closed} />

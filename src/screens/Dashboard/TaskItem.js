@@ -42,6 +42,7 @@ class TaskItem extends Component {
 
   undoTask() {
     this.props.undoTask(this.props.task.id);
+    this.props.onChangeTasks();
   }
 
   deleteTaskHandler(taskId) {
@@ -72,7 +73,7 @@ class TaskItem extends Component {
   }
 
   render() {
-    let {title, dueDate} = this.props.task;
+    let {title, dueDate, completionDate} = this.props.task;
     let {isClosed, isNotCompleted, edit, showEdit} = this.state;
     if (isClosed) showEdit = false; /// overriding a issue??
     return (
@@ -82,7 +83,8 @@ class TaskItem extends Component {
         onClick={this.onClick}
         isNotCompleted={isNotCompleted}>
         <h4>{title}</h4>
-        <p>{dueDate}</p>
+        <p>Due:{dueDate}</p>
+        {!isNotCompleted && <p>Done:{completionDate}</p>}
         <ModalComponent
           show={showEdit}
           handleClose={this.handleClose}
