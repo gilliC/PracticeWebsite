@@ -6,6 +6,7 @@ import {
   MainButton,
   Title,
   MainButtonGroup,
+  MainBGSingleButton,
 } from '../../components/common_components';
 import {lightOrDark} from './convertingFunctions';
 
@@ -114,6 +115,53 @@ const BiggerTextStyle = styled(MainText)`
   font-size: 1.7em;
 `;
 
-export const ColorsConverterButtonGroup = styled(MainButtonGroup)`
+export const ColorsConverterButtonGroup = props => {
+  if (!props.color)
+    return (
+      <ColorsCGeneralButtonG {...props}>{props.children}</ColorsCGeneralButtonG>
+    );
+  if (lightOrDark(props.color) === 'super light')
+    return (
+      <ColorsCLightButtonG {...props}>{props.children}</ColorsCLightButtonG>
+    );
+  else {
+    return (
+      <ColorsCGeneralButtonG {...props}>{props.children}</ColorsCGeneralButtonG>
+    );
+  }
+};
+const ColorsCGeneralButtonG = styled(MainButtonGroup)`
   margin-top: 30px;
 `;
+const ColorsCLightButtonG = styled(ColorsCGeneralButtonG)`
+  label.active {
+    background-color: ${props => props.color || primaryColor};
+    color: black;
+    border-color: black;
+    :hover {
+      color: black;
+      background-color: ${props => props.color || primaryColor};
+    }
+  }
+`;
+const SingleButtonLightColor = styled(MainBGSingleButton)`
+  border-color: black;
+  color: black;
+  background-color: ${props => props.color || primaryColor};
+  :hover {
+    color: black;
+  }
+`;
+export const ColorsConverterSingleBG = props => {
+  if (!props.color)
+    return <MainBGSingleButton {...props}>{props.children}</MainBGSingleButton>;
+  if (lightOrDark(props.color) === 'super light')
+    return (
+      <SingleButtonLightColor {...props}>
+        {props.children}
+      </SingleButtonLightColor>
+    );
+  else {
+    return <MainBGSingleButton {...props}>{props.children}</MainBGSingleButton>;
+  }
+};
