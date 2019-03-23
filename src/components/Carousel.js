@@ -53,7 +53,9 @@ class Carousel extends Component {
           <Arrow icon="arrow-right" rotation={180} />
         </ColinRow>
         <ColinRow size={10}>
-          <TransitionContainer transformInitial="translateX(5px)">
+          <TransitionContainer
+            transformInitial="translateX(5px)"
+            height="initial">
             {this.showChild(this.state.componentIndex)}
           </TransitionContainer>
         </ColinRow>

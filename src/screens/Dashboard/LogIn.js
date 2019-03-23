@@ -53,6 +53,7 @@ export default class SignIn extends Component {
               }) => (
                 <Form>
                   <Field
+                    placeholder="Email"
                     type="email"
                     id="email"
                     component={MainInput}
@@ -61,6 +62,7 @@ export default class SignIn extends Component {
                   />
                   <ErrorMessage name="email" component="div" />
                   <Field
+                    placeholder="Password"
                     type="password"
                     id="password"
                     onChange={handleChange}

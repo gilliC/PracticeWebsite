@@ -34,6 +34,8 @@ class Dashboard extends Component {
     this.props.fetchPermission(this.state.user);
   }
   componentWillReceiveProps(nextProps) {
+    if (this.props.tasks.length === 0 && nextProps.isPermitted)
+      this.props.fetchTasksLoggedIn();
     if (this.props !== nextProps) {
       this.setState({
         data: nextProps.tasks,
@@ -64,8 +66,9 @@ class Dashboard extends Component {
         cookies={this.props.cookies}
       />
     );
-    if (isPermitted)
+    if (isPermitted) {
       secondPart = <TasksList data={data} onChangeTasks={this.onChangeTasks} />;
+    }
     return (
       <div>
         <ColinRow size={12}>
