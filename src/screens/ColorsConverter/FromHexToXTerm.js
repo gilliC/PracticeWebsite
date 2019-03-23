@@ -27,7 +27,7 @@ export default props => {
     const {value} = event.target;
     let error = getColorToHexErrors(value);
     if (error) setState({...state, error, inputHex: value});
-    else setState({...state, inputHex: value, xTerm: -1});
+    else setState({...state, error, inputHex: value, xTerm: -1});
   };
   let handleSubmit = (error, inputHex, setColor) => {
     if (!error) {
@@ -57,9 +57,7 @@ export default props => {
                     Color
                   </ColorsConverterTitle>
                 </BackgroundColorHalfDiv>
-                {xTerm !== -1 && (
-                  <BiggerText color={hexColor}>Hex: {hexColor}</BiggerText>
-                )}
+                <BiggerText color={hexColor}>Hex: {hexColor}</BiggerText>
               </ColinRow>
               <ColinRow>
                 <BackgroundColorHalfDiv bgColor={xTermColor} size={6} right>
@@ -67,9 +65,7 @@ export default props => {
                     Converter
                   </ColorsConverterTitle>
                 </BackgroundColorHalfDiv>
-                {xTerm !== -1 && (
-                  <BiggerText color={xTermColor}>XTerm: {xTerm}</BiggerText>
-                )}
+                <BiggerText color={xTermColor}>XTerm: {xTerm}</BiggerText>
               </ColinRow>
             </ContainerRow>
             <br />

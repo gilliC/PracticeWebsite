@@ -22,10 +22,12 @@ export default props => {
   const [state, setState] = useState({error: '', answer: '', inputHex: ''});
 
   let handleHexInputChange = (event, setColor) => {
+    console.log('HANDLE INPUT CHANGE');
     const {value} = event.target;
     let error = getColorToHexErrors(value);
+    console.log(error);
     if (error) setState({...state, error, inputHex: value});
-    else setState({...state, inputHex: value});
+    else setState({...state, error, inputHex: value});
   };
   let handleSubmit = (error, inputHex, setColor) => {
     let answer;
@@ -35,8 +37,8 @@ export default props => {
         else answer = fromHexToRGB(inputHex, 'cleanRGBA');
         setState({...state, answer});
         setColor(inputHex);
-      } else setState({...state, error});
-    }
+      } else setState({...state, error: 'This is not a Hex code'});
+    } else setState({...state, error});
   };
 
   handleHexInputChange = handleHexInputChange.bind(this);

@@ -62,18 +62,9 @@ const TranslateX = props => {
 const FadeInTrans = transition.div`
 height:${props => props.height || '-webkit-fill-available'};
 width:${props => props.width || '-webkit-fill-available'};
-  &:enter { opacity: 0.01; }
-  &:enter-active {
-    opacity: 1;
-    transition: opacity 5000ms ease-in;
-    transition-duration:${props => props.timeout + 'ms' || '1000ms'};
-  }
-  &:exit { opacity: 1; }
-  &:exit-active {
-    opacity: 0.01;
-    transition: opacity 800ms ease-in;
-    transition-duration:${props => props.timeout + 'ms' || '800ms'};
-  }
+opacity: 1;
+transition: opacity 1000ms ease-in;
+transition-duration:${props => props.timeout + 'ms' || '800ms'};
 `;
 
 const TranslatexTrans = transition.div`

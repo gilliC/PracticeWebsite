@@ -6,7 +6,8 @@ Where I'm trying new things
 Converts from Hex to xTerm | RGBA | HSL
 <br />
 <br  />
-![color converter screenshot](./src/drawable/imgsForREADME/screenshotcolorconverter.png?raw=true)
+
+![color converter gif](./src/drawable/imgsForREADME/gifcolorconverter.gif?raw=true)
 
 ## Pomodoro timer
 ![pomodoro screenshot](./src/drawable/imgsForREADME/screenshotpomodoro.png?raw=true) 

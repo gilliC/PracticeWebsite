@@ -124,5 +124,6 @@ const PomodoroContainer = styled(Container)`
     font-size: 1.25em;
     text-align: left;
     transition: all 0.5s;
+    font-family: Abel;
   }
 `;

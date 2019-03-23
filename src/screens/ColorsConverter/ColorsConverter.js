@@ -67,7 +67,9 @@ const ColorsConverter = props => {
                 );
               })}
             </ColorsConverterButtonGroup>
-            <TransitionContainer type="fade">{component}</TransitionContainer>
+            <TransitionContainer type="FadeIn" timeout={2000}>
+              {component}
+            </TransitionContainer>
           </Container>
         );
       }}
