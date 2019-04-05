@@ -8,7 +8,6 @@ import {
   MainButtonGroup,
   MainBGSingleButton,
 } from '../../components/common_components';
-import {lightOrDark} from './convertingFunctions';
 
 export const BackgroundColorHalfDiv = styled.div`
   height: 150px;
@@ -42,8 +41,9 @@ export const BackgroundColorFullDiv = styled.div`
 `;
 
 export const ColorsConverterInput = props => {
-  if (!props.color) return <InputForColor {...props} />;
-  if (lightOrDark(props.color) === 'super light')
+  if (!props.color || !props.colorbrightness)
+    return <InputForColor {...props} />;
+  if (props.colorbrightness === 'super light')
     return <InputForLightColor {...props} />;
   else {
     return <InputForColor {...props} />;
@@ -70,7 +70,7 @@ const InputForLightColor = styled(InputForColor)`
   color: black;
 `;
 export const ColorsConverterTitle = props => {
-  if (lightOrDark(props.color) === 'super light') {
+  if (props.colorbrightness === 'super light') {
     return (
       <Title {...props} color="black">
         {props.children}
@@ -85,8 +85,9 @@ export const ColorsConverterTitle = props => {
 };
 
 export const ColorsConverterButton = props => {
-  if (!props.color) return <MainButton {...props}>{props.children}</MainButton>;
-  if (lightOrDark(props.color) === 'super light')
+  if (!props.color || !props.colorbrightness)
+    return <MainButton {...props}>{props.children}</MainButton>;
+  if (props.colorbrightness === 'super light')
     return (
       <ButtonForLightColor {...props}>{props.children}</ButtonForLightColor>
     );
@@ -104,9 +105,9 @@ const ButtonForLightColor = styled(MainButton)`
 `;
 
 export const BiggerText = props => {
-  if (!props.color)
+  if (!props.color || !props.colorbrightness)
     return <BiggerTextStyle {...props}>{props.text}</BiggerTextStyle>;
-  if (lightOrDark(props.color) === 'super light')
+  if (props.colorbrightness === 'super light')
     return <BiggerTextStyle color="black">{props.children}</BiggerTextStyle>;
   else return <BiggerTextStyle {...props}>{props.children}</BiggerTextStyle>;
 };
@@ -116,11 +117,11 @@ const BiggerTextStyle = styled(MainText)`
 `;
 
 export const ColorsConverterButtonGroup = props => {
-  if (!props.color)
+  if (!props.color || !props.colorbrightness)
     return (
       <ColorsCGeneralButtonG {...props}>{props.children}</ColorsCGeneralButtonG>
     );
-  if (lightOrDark(props.color) === 'super light')
+  if (props.colorbrightness === 'super light')
     return (
       <ColorsCLightButtonG {...props}>{props.children}</ColorsCLightButtonG>
     );
@@ -153,9 +154,9 @@ const SingleButtonLightColor = styled(MainBGSingleButton)`
   }
 `;
 export const ColorsConverterSingleBG = props => {
-  if (!props.color)
+  if (!props.color || !props.colorbrightness)
     return <MainBGSingleButton {...props}>{props.children}</MainBGSingleButton>;
-  if (lightOrDark(props.color) === 'super light')
+  if (props.colorbrightness === 'super light')
     return (
       <SingleButtonLightColor {...props}>
         {props.children}

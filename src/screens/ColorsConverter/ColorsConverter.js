@@ -14,9 +14,9 @@ export const ColorsConverterProvider = ColorsConverterContext.Provider;
 export const ColorsConverterConsumer = ColorsConverterContext.Consumer;
 
 export default () => {
-  const [color, setColor] = useState('');
+  const [store, setStore] = useState({color: '', colorbrightness: ''});
   return (
-    <ColorsConverterProvider value={{color, setColor}}>
+    <ColorsConverterProvider value={{store, setStore}}>
       <ColorsConverter />
     </ColorsConverterProvider>
   );
@@ -42,13 +42,14 @@ const ColorsConverter = props => {
   return (
     <ColorsConverterConsumer>
       {context => {
+        const {store} = context;
         return (
           <Container>
             <ColorsConverterButtonGroup
               type="radio"
               name="tbg"
               defaultValue={0}
-              color={context.color}
+              {...store}
               onChange={(value, event) => {
                 setIndex(value);
               }}>
@@ -60,7 +61,7 @@ const ColorsConverter = props => {
                     name={index}
                     size={3}
                     key={index}
-                    color={context.color}
+                    {...store}
                     fontSize="1.75em">
                     {option}
                   </ColorsConverterSingleBG>

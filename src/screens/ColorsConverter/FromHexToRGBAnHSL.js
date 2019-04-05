@@ -4,12 +4,7 @@ import {
   ContainerRow,
   MainText,
 } from '../../components/common_components';
-import {
-  checkIfHex,
-  getColorToHexErrors,
-  fromHexToRGB,
-  fromHexToHSL,
-} from './convertingFunctions';
+import {checkIfHex, getColorToHexErrors} from './convertingFunctions';
 import {
   ColorsConverterInput,
   ColorsConverterButton,
@@ -17,26 +12,35 @@ import {
   BackgroundColorFullDiv,
 } from './colorsconverter_components';
 import {ColorsConverterConsumer} from './ColorsConverter';
+import ConnectServer from '../../classes/connectServer';
 
 export default props => {
   const [state, setState] = useState({error: '', answer: '', inputHex: ''});
 
-  let handleHexInputChange = (event, setColor) => {
-    console.log('HANDLE INPUT CHANGE');
+  let handleHexInputChange = event => {
     const {value} = event.target;
     let error = getColorToHexErrors(value);
-    console.log(error);
     if (error) setState({...state, error, inputHex: value});
     else setState({...state, error, inputHex: value});
   };
-  let handleSubmit = (error, inputHex, setColor) => {
-    let answer;
+  let handleSubmit = async (error, inputHex, setStore) => {
     if (!error) {
       if (checkIfHex(inputHex)) {
-        if (props.type === 'HSL') answer = fromHexToHSL(inputHex);
-        else answer = fromHexToRGB(inputHex, 'cleanRGBA');
-        setState({...state, answer});
-        setColor(inputHex);
+        const connectS = new ConnectServer();
+        let res = await connectS.getColorConverterReq(
+          inputHex,
+          props.type.toUpperCase(),
+        );
+        if (res.type === 'error') setState({...state, error: res.message});
+        else {
+          let color = res.color;
+          res = await connectS.getColorConverterReq(
+            inputHex,
+            'BRIGHTNESSLEVEL',
+          );
+          setState({...state, answer: color});
+          setStore({color: inputHex, colorbrightness: res.level});
+        }
       } else setState({...state, error: 'This is not a Hex code'});
     } else setState({...state, error});
   };
@@ -47,30 +51,28 @@ export default props => {
   return (
     <ColorsConverterConsumer>
       {context => {
-        const hexColor = context.color;
+        const hexColor = context.store.color;
         const {answer, error, inputHex} = state;
         return (
           <Container>
-            <ContainerRow height="100px">
+            <ContainerRow height="100px" marginBottom="49px">
               <BackgroundColorFullDiv bgColor={hexColor}>
                 <ColorsConverterTitle color={hexColor}>
                   {answer || 'Color Converter'}
                 </ColorsConverterTitle>
               </BackgroundColorFullDiv>
             </ContainerRow>
-            <br />
-            <br />
             <ColorsConverterInput
               placeholder="Enter the Hex code"
               onChange={event => {
-                handleHexInputChange(event, context);
+                handleHexInputChange(event);
               }}
               color={hexColor}
             />
             <br />
             <ColorsConverterButton
               onClick={() => {
-                handleSubmit(error, inputHex, context.setColor);
+                handleSubmit(error, inputHex, context.setStore);
               }}
               color={hexColor}>
               Convert

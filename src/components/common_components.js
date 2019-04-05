@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {ToggleButtonGroup, ToggleButton} from 'react-bootstrap';
@@ -23,6 +22,7 @@ export const ContainerRow = styled.div`
   display: flex;
   display: -webkit-flex;
   height: ${props => props.height || '100%'};
+  margin-bottom: ${props => props.marginBottom || 'inherit'};
 `;
 export const ColinRow = styled.div`
   width: ${props => (props.size ? (100 / 12) * props.size + '%' : '100%')};

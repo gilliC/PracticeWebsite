@@ -4,7 +4,7 @@ import {Title} from '../../components/common_components';
 
 export default props => {
   const {title} = props.item;
-  let isActive = props.activeList === title;
+  let isActive = props.activeList.title === title;
   let thisSetList = event => {
     console.log(props);
     event.preventDefault();
