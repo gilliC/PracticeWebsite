@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default class ConnectServer {
   constructor() {
-    this.url = 'http://localhost:1617/';
+    this.url = 'http://localhost:5000/';
   }
 
   async getColorConverterReq(color, type) {
