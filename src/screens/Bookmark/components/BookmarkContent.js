@@ -3,9 +3,9 @@ import ActiveList from "../ActiveArticlesList";
 import LinksList from "../ArticlesList";
 import { LinksListContainer } from "./LinksListContainer";
 import { LinksContainer } from "./LinksContainer";
-import { ColinRow } from "../../components/common_components";
+import { ColinRow } from "../../../components/common_components";
 import { BookmarkConsumer } from "../index";
-import { Title } from "../../components/texts/Title";
+import { Title } from "../../../components/texts/Title";
 
 export const BookmarkContent = props => {
   return (

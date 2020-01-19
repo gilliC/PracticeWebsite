@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 import { primaryColor } from "../../app_components";
-import { Title } from "../../components/common_components";
+import { Title } from "../../components/texts/Title";
 
 ///////////// ANIMATIONS /////////
 const linkItem_hovering = keyframes` 

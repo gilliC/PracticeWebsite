@@ -1,5 +1,6 @@
 import React, { Component, createContext } from "react";
 import ConnectServer from "../../classes/connectServer";
+import { BookmarkContent } from './components/BookmarkContent';
 
 const BookmarkContext = createContext({});
 const BookmarkProvider = BookmarkContext.Provider;
@@ -35,7 +36,7 @@ export class Bookmark extends Component {
           setList: this.setList
         }}
       >
-        <Bookmark />
+        <BookmarkContent />
       </BookmarkProvider>
     );
   }
