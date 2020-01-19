@@ -1,22 +1,22 @@
-import React, {createContext, useState} from 'react';
+import React, { createContext, useState } from "react";
 
-import {Container} from '../../components/common_components';
-import TransitionContainer from '../../components/TransitionContainer';
+import { Container } from "../../components/Container";
+import TransitionContainer from "../../components/TransitionContainer";
 import {
   ColorsConverterButtonGroup,
-  ColorsConverterSingleBG,
-} from './colorsconverter_components';
-import FromHexToXTermComponent from './FromHexToXTerm';
-import FromHexToRGBANHSL from './FromHexToRGBAnHSL';
+  ColorsConverterSingleBG
+} from "./colorsconverter_components";
+import FromHexToXTermComponent from "./FromHexToXTerm";
+import FromHexToRGBANHSL from "./FromHexToRGBAnHSL";
 
 const ColorsConverterContext = createContext();
 export const ColorsConverterProvider = ColorsConverterContext.Provider;
 export const ColorsConverterConsumer = ColorsConverterContext.Consumer;
 
 export default () => {
-  const [store, setStore] = useState({color: '', colorbrightness: ''});
+  const [store, setStore] = useState({ color: "", colorbrightness: "" });
   return (
-    <ColorsConverterProvider value={{store, setStore}}>
+    <ColorsConverterProvider value={{ store, setStore }}>
       <ColorsConverter />
     </ColorsConverterProvider>
   );
@@ -37,12 +37,12 @@ const ColorsConverter = props => {
       break;
   }
 
-  const optionsArray = ['Hex to XTerm', 'Hex to RGBA', 'Hex to HSL'];
+  const optionsArray = ["Hex to XTerm", "Hex to RGBA", "Hex to HSL"];
 
   return (
     <ColorsConverterConsumer>
       {context => {
-        const {store} = context;
+        const { store } = context;
         return (
           <Container>
             <ColorsConverterButtonGroup
@@ -52,7 +52,8 @@ const ColorsConverter = props => {
               {...store}
               onChange={(value, event) => {
                 setIndex(value);
-              }}>
+              }}
+            >
               {optionsArray.map((option, index) => {
                 return (
                   <ColorsConverterSingleBG
@@ -62,7 +63,8 @@ const ColorsConverter = props => {
                     size={3}
                     key={index}
                     {...store}
-                    fontSize="1.75em">
+                    fontSize="1.75em"
+                  >
                     {option}
                   </ColorsConverterSingleBG>
                 );

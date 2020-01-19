@@ -1,49 +1,39 @@
-import styled from 'styled-components';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {ToggleButtonGroup, ToggleButton} from 'react-bootstrap';
-import {primaryColor, secondaryColor} from '../app_components';
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ToggleButtonGroup, ToggleButton } from "react-bootstrap";
+import { primaryColor, secondaryColor } from "../app_components";
 
 /////////////// DIVS /////////////
-export const Container = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  display: -webkit-flex;
-  -webkit-align-items: center;
-  flex-direction: column;
-  height: ${props => props.height || '100%'};
-  width: ${props => props.height || '100%'};
-`;
 export const ContainerRow = styled.div`
   flex-direction: row;
-  align-items: ${props => props.align || 'center'};
-  -webkit-align-items: ${props => props.align || 'center'};
-  justify-content: ${props => props.justifySelf || 'center'};
+  align-items: ${props => props.align || "center"};
+  -webkit-align-items: ${props => props.align || "center"};
+  justify-content: ${props => props.justifySelf || "center"};
   display: flex;
   display: -webkit-flex;
-  height: ${props => props.height || '100%'};
-  margin-bottom: ${props => props.marginBottom || 'inherit'};
+  height: ${props => props.height || "100%"};
+  margin-bottom: ${props => props.marginBottom || "inherit"};
 `;
 export const ColinRow = styled.div`
-  width: ${props => (props.size ? (100 / 12) * props.size + '%' : '100%')};
-  float: ${props => (props.float: 'none')};
-  display: ${props => props.display || 'initial'};
+  width: ${props => (props.size ? (100 / 12) * props.size + "%" : "100%")};
+  float: ${props => (props.float: "none")};
+  display: ${props => props.display || "initial"};
 `;
 
 /////////////// TITLES & TEXTS/////////////
 export const Title = styled.h1`
-  font-size: ${props => props.fontSize || '5em'};
-  text-align: ${props => props.textAlign || 'center'};
-  font-family: ${props => props.fontFamily || 'Abel'};
-  color: ${props => props.color || 'black'};
+  font-size: ${props => props.fontSize || "5em"};
+  text-align: ${props => props.textAlign || "center"};
+  font-family: ${props => props.fontFamily || "Abel"};
+  color: ${props => props.color || "black"};
   cursor: default;
 `;
 
 export const MainText = styled.p`
-  font-size: ${props => props.fontSize || '1.5em'};
-  text-align: ${props => props.textAlign || 'center'};
-  font-family: ${props => props.fontFamily || 'Comfortaa'};
-  color: ${props => props.color || 'black'};
+  font-size: ${props => props.fontSize || "1.5em"};
+  text-align: ${props => props.textAlign || "center"};
+  font-family: ${props => props.fontFamily || "Comfortaa"};
+  color: ${props => props.color || "black"};
   cursor: default;
 `;
 export const BoldText = styled.span`
@@ -53,8 +43,8 @@ export const BoldText = styled.span`
 /////////////// INPUTS /////////////
 export const MainInput = styled.input`
   height: 30px;
-  width: ${props => (props.size ? (100 / 12) * props.size + '%' : '100%')};
-  font-family: ${props => props.fontFamily || 'Abel'};
+  width: ${props => (props.size ? (100 / 12) * props.size + "%" : "100%")};
+  font-family: ${props => props.fontFamily || "Abel"};
   color: ${props => props.color || primaryColor};
   background-color: white;
   margin-left: 0;
@@ -110,10 +100,10 @@ export const MainButtonGroup = styled(ToggleButtonGroup)`
 `;
 
 export const MainBGSingleButton = styled(ToggleButton)`
-  width: ${props => (props.size ? 100 / props.size + '%' : '100%')};
-  height: ${props => props.height || '75px'};
-  font-size: ${props => props.fontSize || '1.5em'};
-  font-family: ${props => props.fontFamily || 'Abel'};
+  width: ${props => (props.size ? 100 / props.size + "%" : "100%")};
+  height: ${props => props.height || "75px"};
+  font-size: ${props => props.fontSize || "1.5em"};
+  font-family: ${props => props.fontFamily || "Abel"};
   color: ${props => props.color || primaryColor};
   border: 2px solid ${primaryColor};
   border-color: ${props => props.color || primaryColor};

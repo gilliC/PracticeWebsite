@@ -37,10 +37,10 @@ exports.default = [
     title: 'React Native',
     articles: [
       {
-        title: '11 React Native Component Libraries You Should Know in 2018',
-        writer: 'Jonathan Saring',
+        title: 'Preparing a React Native Android App for Production',
+        writer: 'Spencer Carli',
         link:
-          'https://blog.bitsrc.io/11-react-native-component-libraries-you-should-know-in-2018-71d2a8e33312',
+          'https://android.jlelse.eu/preparing-a-reach-native-android-app-for-production-f063413d5633',
       },
       {
         title: 'React Native Setup on macOS',
@@ -86,6 +86,12 @@ exports.default = [
         writer: 'Deni Putra Perdana',
         link:
           'https://medium.com/skyshidigital/5-best-practices-for-react-native-development-you-probably-doesnt-know-474df87d74e6',
+      },
+      {
+        title: 'Add App Icons and Launch Screens to React Native Apps',
+        writer: 'Scott Stewart',
+        link:
+          'https://medium.com/@scottianstewart/react-native-add-app-icons-and-launch-screens-onto-ios-and-android-apps-3bfbc20b7d4c',
       },
     ],
   },
@@ -141,6 +147,12 @@ exports.default = [
   {
     title: 'Other',
     articles: [
+      {
+        title: 'Jazz Up Your “ZSH” Terminal In Seven Steps',
+        writer: 'rajaraodv',
+        link:
+          'https://medium.freecodecamp.org/jazz-up-your-zsh-terminal-in-seven-steps-a-visual-guide-e81a8fd59a38',
+      },
       {
         title: 'Woman Also Know Stuff',
         writer: '',
