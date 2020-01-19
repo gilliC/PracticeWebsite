@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ArticleItem from './ArticlesListItem';
-import {BookmarkConsumer} from './Bookmark';
+import {BookmarkConsumer} from './index';
 
 export default props => {
   return (

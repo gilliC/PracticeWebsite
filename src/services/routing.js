@@ -3,7 +3,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { withCookies } from "react-cookie";
 
 import { Home } from "../screens/Home";
-import Bookmark from "../screens/Bookmark/Bookmark";
+import { Bookmark } from "../screens/Bookmark";
 import Dashboard from "../screens/Dashboard/Dashboard";
 import Pomodoro from "../screens/Pomodoro/Pomodoro";
 import ColorsConverter from "../screens/ColorsConverter/ColorsConverter";
