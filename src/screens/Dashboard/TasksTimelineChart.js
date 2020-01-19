@@ -4,7 +4,8 @@ import {Bar} from 'react-chartjs-2';
 
 import {secondaryColor} from '../../app_components';
 import {parseToMoment, getWithOpacity} from '../../services/functions';
-import {Title, Container} from '../../components/common_components';
+import {Title} from '../../components/common_components';
+import {Container} from '../../components/Container';
 
 const dataArrayEnums = {
   labels: 0,

@@ -1,7 +1,8 @@
 import React from 'react';
 
 import ArticleLink from './ArticleLink';
-import {Container, ColinRow} from '../../components/Container';
+import {Container} from '../../components/Container';
+import {ColinRow} from '../../components/common_components';
 import {ListActiveTitle} from './articles_components';
 import TransitionContainer from '../../components/TransitionContainer';
 

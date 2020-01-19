@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
+import { Container } from '../../components/Container';
 import {
-  Container,
   ContainerRow,
   MainText,
 } from '../../components/common_components';

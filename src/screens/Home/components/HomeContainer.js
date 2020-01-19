@@ -1,4 +1,5 @@
-import { Container } from "../../../components/common_components";
+import { Container } from "../../../components/Container";
+import styled from "styled-components";
 
 export const HomeContainer = styled(Container)`
   text-align: center;

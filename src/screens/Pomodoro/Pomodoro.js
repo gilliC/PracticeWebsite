@@ -4,7 +4,8 @@ import Sound from 'react-sound';
 
 import ringtone from '../../assets/loving-you.mp3';
 import Timer from './TimerContainer';
-import {Title, Container} from '../../components/common_components';
+import {Title} from '../../components/common_components';
+import {Container} from '../../components/Container';
 import {
   primaryColor,
   secondaryColor,

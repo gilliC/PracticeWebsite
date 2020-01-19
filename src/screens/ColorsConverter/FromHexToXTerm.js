@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {
-  Container,
   ColinRow,
   ContainerRow,
   MainText,
 } from '../../components/common_components';
+import { Container } from '../../components/Container';
 import {checkIfHex, getColorToHexErrors} from './convertingFunctions';
 import {
   ColorsConverterInput,

@@ -4,8 +4,8 @@ import {
   Title,
   MainInput,
   MainButton,
-  Container,
 } from '../../components/common_components';
+import {Container} from '../../components/Container';
 
 export default class SignIn extends Component {
   constructor(props) {
