@@ -1,12 +1,11 @@
 import React from "react";
-
-import ArticleLink from "../../../../ArticleLink";
 import { ArticlesListContainer } from "../ArticlesListContainer";
-import { ListActiveTitle } from "../ListActiveTitle";
+import { ListActiveTitle } from "./components/ListActiveTitle";
+import { ArticleLinkItem } from "./components/ArticleLinkItem";
 
 export const ActiveListContent = props => {
   let links = props.activeList.articles.map(article => {
-    return <ArticleLink article={article} key={article.title} />;
+    return <ArticleLinkItem article={article} key={article.title} />;
   });
   return (
     <ArticlesListContainer>
