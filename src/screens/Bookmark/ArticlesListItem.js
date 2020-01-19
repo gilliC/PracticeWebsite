@@ -1,6 +1,6 @@
 import React from 'react';
 import {ArticleItemContainer} from './articles_components';
-import {Title} from '../../components/common_components';
+import {Title} from '../../components/texts/Title';
 
 export default props => {
   const {title} = props.item;

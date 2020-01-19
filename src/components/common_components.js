@@ -21,14 +21,6 @@ export const ColinRow = styled.div`
 `;
 
 /////////////// TITLES & TEXTS/////////////
-export const Title = styled.h1`
-  font-size: ${props => props.fontSize || "5em"};
-  text-align: ${props => props.textAlign || "center"};
-  font-family: ${props => props.fontFamily || "Abel"};
-  color: ${props => props.color || "black"};
-  cursor: default;
-`;
-
 export const MainText = styled.p`
   font-size: ${props => props.fontSize || "1.5em"};
   text-align: ${props => props.textAlign || "center"};

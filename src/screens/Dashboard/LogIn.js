@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {
-  Title,
   MainInput,
   MainButton,
 } from '../../components/common_components';
+import { Title } from "../../components/texts/Title";
 import {Container} from '../../components/Container';
 
 export default class SignIn extends Component {

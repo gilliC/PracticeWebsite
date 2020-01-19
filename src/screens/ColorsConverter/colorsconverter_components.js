@@ -4,10 +4,10 @@ import React from 'react';
 import {
   MainText,
   MainButton,
-  Title,
   MainButtonGroup,
   MainBGSingleButton,
 } from '../../components/common_components';
+import { Title } from "../../components/texts/Title";
 
 export const BackgroundColorHalfDiv = styled.div`
   height: 150px;

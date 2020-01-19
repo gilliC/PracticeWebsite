@@ -1,9 +1,11 @@
 import React from "react";
 import ActiveList from "../ActiveArticlesList";
 import LinksList from "../ArticlesList";
-import { LinksContainer, LinksListContainer } from "../articles_components";
-import { ColinRow, Title } from "../../components/common_components";
+import { LinksListContainer } from "./LinksListContainer";
+import { LinksContainer } from "./LinksContainer";
+import { ColinRow } from "../../components/common_components";
 import { BookmarkConsumer } from "../index";
+import { Title } from "../../components/texts/Title";
 
 export const BookmarkContent = props => {
   return (

@@ -4,7 +4,7 @@ import {Doughnut} from 'react-chartjs-2';
 
 import {secondaryColor} from '../../app_components';
 import {parseToMoment, getWithOpacity} from '../../services/functions';
-import {Title} from '../../components/common_components';
+import { Title } from "../../components/texts/Title";
 import {Container} from '../../components/Container';
 export default class TasksPieChart extends Component {
   constructor(props) {

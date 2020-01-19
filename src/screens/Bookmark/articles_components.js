@@ -1,7 +1,7 @@
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
-import {primaryColor} from '../../app_components';
-import {Title} from '../../components/common_components';
+import { primaryColor } from "../../app_components";
+import { Title } from "../../components/common_components";
 
 ///////////// ANIMATIONS /////////
 const linkItem_hovering = keyframes` 
@@ -14,30 +14,13 @@ const linkItem_hovering = keyframes`
 
 ///////////// DIVS /////////
 
-export const LinksContainer = styled.div`
-  padding-top: 20px;
-  flex-direction: row;
-  display: flex;
-  justify-content: center;
-  display: -webkit-flex;
-`;
-
-export const LinksListContainer = styled.div`
-  margin-left: 20px;
-  border-radius: 10px;
-  width: 300px;
-  padding: 20px;
-  float: left;
-  }
-`;
-
 export const ArticleItemContainer = styled.div`
   border-bottom: solid ${primaryColor} 2px;
   padding: 10px;
   cursor: pointer;
-  color: ${props => (props.active ? primaryColor : 'inherit')};
-  border-bottom: ${props => (props.active ? `solid ${primaryColor} 2px` : '')};
-  animation-name: ${props => (props.active ? linkItem_hovering : '')};
+  color: ${props => (props.active ? primaryColor : "inherit")};
+  border-bottom: ${props => (props.active ? `solid ${primaryColor} 2px` : "")};
+  animation-name: ${props => (props.active ? linkItem_hovering : "")};
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
   :hover {
