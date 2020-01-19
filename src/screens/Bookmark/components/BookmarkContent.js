@@ -1,7 +1,6 @@
 import React from "react";
 import ActiveList from "../ActiveArticlesList";
-import LinksList from "./ArticlesList";
-import { LinksListContainer } from "./LinksListContainer";
+import { SubjectsList } from "./SubjectsList";
 import { LinksContainer } from "./LinksContainer";
 import { ColinRow } from "../../../components/common_components";
 import { BookmarkConsumer } from "../index";
@@ -17,9 +16,7 @@ export const BookmarkContent = props => {
           if (context.list === null) return <LoadingScreen />;
           return (
             <LinksContainer>
-              <LinksListContainer>
-                <LinksList activeList={context.activeList.title} />
-              </LinksListContainer>
+              <SubjectsList activeList={context.activeList.title} />
               <ColinRow float="left" size={6}>
                 <ActiveList activeList={context.activeList} />
               </ColinRow>

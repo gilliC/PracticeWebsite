@@ -1,6 +1,7 @@
 import React, { Component, createContext } from "react";
 import ConnectServer from "../../classes/connectServer";
 import { BookmarkContent } from './components/BookmarkContent';
+import data from "./data";
 
 const BookmarkContext = createContext({});
 const BookmarkProvider = BookmarkContext.Provider;
@@ -23,7 +24,9 @@ export class Bookmark extends Component {
   async componentDidMount() {
     if (this.state.list === null) {
       const cs = new ConnectServer();
-      const res = await cs.getBookmark();
+      // const res = await cs.getBookmark();
+      const res = data;
+      console.log(res)
       this.setState({ list: res, activeList: res[0] });
     }
   }
