@@ -2,9 +2,9 @@ import React from 'react';
 
 import ArticleLink from './ArticleLink';
 import {Container} from '../../components/Container';
-import {ColinRow} from '../../components/common_components';
 import {ListActiveTitle} from './articles_components';
 import TransitionContainer from '../../components/TransitionContainer';
+import { ColinRow } from '../../components/views/ColInRow';
 
 export default props => {
   let links = props.activeList.articles.map(article => {

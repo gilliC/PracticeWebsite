@@ -14,11 +14,6 @@ export const ContainerRow = styled.div`
   height: ${props => props.height || "100%"};
   margin-bottom: ${props => props.marginBottom || "inherit"};
 `;
-export const ColinRow = styled.div`
-  width: ${props => (props.size ? (100 / 12) * props.size + "%" : "100%")};
-  float: ${props => (props.float: "none")};
-  display: ${props => props.display || "initial"};
-`;
 
 /////////////// TITLES & TEXTS/////////////
 export const MainText = styled.p`

@@ -5,11 +5,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import {primaryColor, secondaryColor} from '../../app_components';
 import {
-  ColinRow,
   ContainerRow,
   MainButton,
 } from '../../components/common_components';
 import {getWithOpacity} from '../../services/functions';
+import { ColinRow } from '../../components/views/ColInRow';
 ///////////// ANIMATIONS /////////////
 
 export const completeTask = styled(keyframes)` 

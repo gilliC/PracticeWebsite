@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
-import {ColinRow, CarouselRow, Arrow} from './common_components';
+import { CarouselRow, Arrow} from './common_components';
 import TransitionContainer from './TransitionContainer';
+import { ColinRow } from './views/ColInRow';
 
 class Carousel extends Component {
   constructor(props) {

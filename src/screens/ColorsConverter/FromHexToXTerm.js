@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {
-  ColinRow,
   ContainerRow,
   MainText,
 } from '../../components/common_components';
@@ -15,6 +14,7 @@ import {
 } from './colorsconverter_components';
 import {ColorsConverterConsumer} from './ColorsConverter';
 import ConnectServer from '../../classes/connectServer';
+import { ColinRow } from '../../components/views/ColInRow';
 
 export default props => {
   const [state, setState] = useState({error: '', inputHex: '', xTerm: -1});

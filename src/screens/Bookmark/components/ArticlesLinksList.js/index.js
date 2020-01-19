@@ -1,6 +1,6 @@
 import React from "react";
 import ActiveList from "../../ActiveArticlesList";
-import { ColinRow } from "../../../../components/common_components";
+import { ColinRow } from "../../../../components/views/ColInRow";
 
 export const ArticlesLinksList = ({ activeList }) => {
   return (
