@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { primaryColor } from "../../../../../../../../../app_components";
+import styled from 'styled-components';
+import { primaryColor } from 'src/styling/colorsPalette';
 
 export const LinkText = styled.p`
   text-align: center;
