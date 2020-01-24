@@ -5,7 +5,7 @@ import Sound from 'react-sound';
 
 import ringtone from '../../assets/loving-you.mp3';
 import TimerContainer from './TimerContainer';
-import {MainButton, Title, Container} from '../../components/common_components';
+import {MainButton, Title, Container} from '../../commonComponents/common_components';
 import {primaryColor, secondaryColor} from '../../app_components';
 export default class Pomodoro extends Component {
   constructor(props) {

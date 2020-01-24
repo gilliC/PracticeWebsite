@@ -1,4 +1,4 @@
-import { Container } from "../../../components/Container";
+import { Container } from "../../../commonComponents/Container";
 import styled from "styled-components";
 
 export const HomeContainer = styled(Container)`

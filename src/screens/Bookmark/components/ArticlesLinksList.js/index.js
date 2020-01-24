@@ -1,7 +1,7 @@
-import React from "react";
-import { ColinRow } from "../../../../components/views/ColInRow";
-import { ActiveListContent } from "./components/ActiveListContent";
-import TransitionContainer from "../../../../components/TransitionContainer";
+import React from 'react';
+import { ColinRow } from 'src/commonComponents/views/ColInRow';
+import { ActiveListContent } from './components/ActiveListContent';
+import TransitionContainer from 'src/commonComponents/TransitionContainer';
 
 export const ArticlesLinksList = ({ activeList }) => {
   return (
@@ -9,8 +9,7 @@ export const ArticlesLinksList = ({ activeList }) => {
       <TransitionContainer
         type="TranslateX"
         timeout={500}
-        transformInitial="translateX(300px)"
-      >
+        transformInitial="translateX(300px)">
         <ActiveListContent activeList={activeList} />
       </TransitionContainer>
     </ColinRow>

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import { Container } from '../../components/Container';
+import { Container } from '../../commonComponents/Container';
 import {
   ContainerRow,
   MainText,
-} from '../../components/common_components';
+} from '../../commonComponents/common_components';
 import {checkIfHex, getColorToHexErrors} from './convertingFunctions';
 import {
   ColorsConverterInput,

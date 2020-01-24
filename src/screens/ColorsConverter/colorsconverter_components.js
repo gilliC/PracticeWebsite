@@ -6,8 +6,8 @@ import {
   MainButton,
   MainButtonGroup,
   MainBGSingleButton,
-} from '../../components/common_components';
-import { Title } from "../../components/texts/Title";
+} from '../../commonComponents/common_components';
+import { Title } from "../../commonComponents/texts/Title";
 
 export const BackgroundColorHalfDiv = styled.div`
   height: 150px;

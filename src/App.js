@@ -18,9 +18,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import store from "./services/configureStore";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./commonComponents/Sidebar/Sidebar";
 import Routing from "./services/routing";
-import { ContainerRow } from "./components/common_components";
+import { ContainerRow } from "./commonComponents/common_components";
 import { AppSideContainr, SidebarPush } from "./app_components";
 
 import "./App.css";

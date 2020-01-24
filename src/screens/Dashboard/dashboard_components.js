@@ -1,15 +1,15 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
-import {Modal} from 'react-bootstrap';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import styled, { keyframes } from 'styled-components';
+import { Modal } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import {primaryColor, secondaryColor} from '../../app_components';
+import { primaryColor, secondaryColor } from '../../app_components';
 import {
   ContainerRow,
   MainButton,
-} from '../../components/common_components';
-import {getWithOpacity} from '../../services/functions';
-import { ColinRow } from '../../components/views/ColInRow';
+} from '../../commonComponents/common_components';
+import { getWithOpacity } from '../../services/functions';
+import { ColinRow } from '../../commonComponents/views/ColInRow';
 ///////////// ANIMATIONS /////////////
 
 export const completeTask = styled(keyframes)` 

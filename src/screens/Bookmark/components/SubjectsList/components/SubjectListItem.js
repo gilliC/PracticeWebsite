@@ -1,6 +1,6 @@
-import React from "react";
-import { SubjectItemContainer } from "./SubjectItemContainer";
-import { Title } from "../../../../../components/texts/Title";
+import React from 'react';
+import { SubjectItemContainer } from './SubjectItemContainer';
+import { Title } from '../../../../../commonComponents/texts/Title';
 
 export const SubjectListItem = props => {
   const { title } = props.item;

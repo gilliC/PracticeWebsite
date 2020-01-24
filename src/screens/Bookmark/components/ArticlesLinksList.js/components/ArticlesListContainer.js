@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ArticlesListContainer = styled.div`
   align-items: center;
@@ -7,6 +7,6 @@ export const ArticlesListContainer = styled.div`
   display: -webkit-flex;
   -webkit-align-items: center;
   flex-direction: column;
-  height:  "100%";
-  width:  "100%";
+  height: '100%';
+  width: '100%';
 `;

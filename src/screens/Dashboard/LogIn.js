@@ -3,9 +3,9 @@ import {Formik, Form, Field, ErrorMessage} from 'formik';
 import {
   MainInput,
   MainButton,
-} from '../../components/common_components';
-import { Title } from "../../components/texts/Title";
-import {Container} from '../../components/Container';
+} from '../../commonComponents/common_components';
+import { Title } from "../../commonComponents/texts/Title";
+import {Container} from '../../commonComponents/Container';
 
 export default class SignIn extends Component {
   constructor(props) {

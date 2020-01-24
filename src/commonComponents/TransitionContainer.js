@@ -1,6 +1,6 @@
 import React from 'react';
 import transition from 'styled-transition-group';
-import {Container} from '../components/Container';
+import {Container} from './Container';
 
 export default class TransitionContainer extends React.Component {
   constructor(props) {

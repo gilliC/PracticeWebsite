@@ -4,7 +4,7 @@ import moment from 'moment';
 import {Modal} from 'react-bootstrap';
 
 import {formatDate} from '../../services/functions';
-import DatePickerItem from '../../components/DatePickerItem';
+import DatePickerItem from '../../commonComponents/DatePickerItem';
 import {
   ModalContainer,
   ModalBtnContainer,

@@ -1,7 +1,7 @@
-import React from "react";
-import { ArticlesListContainer } from "../ArticlesListContainer";
-import { ListActiveTitle } from "./components/ListActiveTitle";
-import { ArticleLinkItem } from "./components/ArticleLinkItem";
+import React from 'react';
+import { ArticlesListContainer } from '../ArticlesListContainer';
+import { ListActiveTitle } from './components/ListActiveTitle';
+import { ArticleLinkItem } from './components/ArticleLinkItem';
 
 export const ActiveListContent = props => {
   const { articles, title } = props.activeList;

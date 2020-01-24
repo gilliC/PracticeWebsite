@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {
   ContainerRow,
   MainText,
-} from '../../components/common_components';
-import { Container } from '../../components/Container';
+} from '../../commonComponents/common_components';
+import { Container } from '../../commonComponents/Container';
 import {checkIfHex, getColorToHexErrors} from './convertingFunctions';
 import {
   ColorsConverterInput,
@@ -14,7 +14,7 @@ import {
 } from './colorsconverter_components';
 import {ColorsConverterConsumer} from './ColorsConverter';
 import ConnectServer from '../../classes/connectServer';
-import { ColinRow } from '../../components/views/ColInRow';
+import { ColinRow } from '../../commonComponents/views/ColInRow';
 
 export default props => {
   const [state, setState] = useState({error: '', inputHex: '', xTerm: -1});

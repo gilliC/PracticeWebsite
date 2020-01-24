@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 
-import { Container } from "../../components/Container";
-import TransitionContainer from "../../components/TransitionContainer";
+import { Container } from "../../commonComponents/Container";
+import TransitionContainer from "../../commonComponents/TransitionContainer";
 import {
   ColorsConverterButtonGroup,
   ColorsConverterSingleBG
