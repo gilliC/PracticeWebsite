@@ -1,13 +1,8 @@
 import React from 'react';
-// import { ConverterTypeButtonGroup as ButtonGroup } from './components/ConverterTypeButtonGroup';
-// import { ConverterTypeButtonGroupLight as ButtonGroupLight } from './components/ConverterTypeButtonGroupLight';
 import { brightnessTypes } from '../../logic/consts';
-import {
-  ColorsConverterButtonGroup,
-  ColorsConverterSingleBG,
-} from '../../colorsconverter_components';
 import { ConveterTypeButton } from './components/ConverterTypeButton';
-// import { ConverterTypeButton } from './components/ConverterTypeButton';
+import { TypeButtonGroupColorDark } from './components/TypeButtonGroupColorDark';
+import { TypeButtonGroupColorLight } from './components/TypeButtonGroupColorLight';
 
 export const ChooseConverterTypeButtonGroup = props => {
   const { color, colorbrightness, onChange, store } = props;
@@ -23,11 +18,12 @@ export const ChooseConverterTypeButtonGroup = props => {
       />
     );
   });
-  return (
-    <ColorsConverterButtonGroup {...params}>
-      {buttonsComponents}
-    </ColorsConverterButtonGroup>
-  );
+  if(color && colorbrightness === brightnessTypes.SUPER_LIGHT){
+    return <TypeButtonGroupColorLight {...params}> {buttonsComponents} </TypeButtonGroupColorLight>;
+ 
+  }
+
+  return <TypeButtonGroupColorDark {...params}> {buttonsComponents} </TypeButtonGroupColorDark>;
 };
 
 const getInitialButtonGroupParams = onChange => {
