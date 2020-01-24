@@ -6,7 +6,7 @@ import { Home } from "../screens/Home";
 import { Bookmark } from "../screens/Bookmark";
 import Dashboard from "../screens/Dashboard/Dashboard";
 import Pomodoro from "../screens/Pomodoro/Pomodoro";
-import ColorsConverter from "../screens/ColorsConverter/ColorsConverter";
+import { ColorsConverter } from "src/screens/ColorsConverter";
 
 const routing = props => {
   let { location } = props.history;

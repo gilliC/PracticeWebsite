@@ -11,7 +11,7 @@ import {
   ColorsConverterTitle,
   BackgroundColorFullDiv,
 } from './colorsconverter_components';
-import {ColorsConverterConsumer} from './ColorsConverter';
+import {ColorsConverterConsumer} from '.';
 import ConnectServer from '../../classes/connectServer';
 
 export default props => {

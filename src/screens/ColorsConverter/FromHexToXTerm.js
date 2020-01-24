@@ -12,7 +12,7 @@ import {
   BiggerText,
   BackgroundColorHalfDiv,
 } from './colorsconverter_components';
-import {ColorsConverterConsumer} from './ColorsConverter';
+import {ColorsConverterConsumer} from '.';
 import ConnectServer from '../../classes/connectServer';
 import { ColinRow } from '../../commonComponents/views/ColInRow';
 
