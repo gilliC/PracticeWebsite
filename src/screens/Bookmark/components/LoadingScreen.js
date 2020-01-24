@@ -1,6 +1,6 @@
-import React from "react";
-import { LinksContainer } from "./LinksContainer";
-import { Title } from "../../../commonComponents/texts/Title";
+import React from 'react';
+import { LinksContainer } from './LinksContainer';
+import { Title } from 'src/commonComponents/texts/Title';
 
 export const LoadingScreen = () => {
   return (

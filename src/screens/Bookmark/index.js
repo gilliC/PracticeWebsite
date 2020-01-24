@@ -1,7 +1,7 @@
-import React, { Component, createContext } from "react";
-import ConnectServer from "../../classes/connectServer";
+import React, { Component, createContext } from 'react';
+import ConnectServer from 'src/classes/connectServer';
 import { BookmarkContent } from './components/BookmarkContent';
-import data from "./data";
+import data from './data';
 
 const BookmarkContext = createContext({});
 const BookmarkProvider = BookmarkContext.Provider;
@@ -26,7 +26,7 @@ export class Bookmark extends Component {
       const cs = new ConnectServer();
       // const res = await cs.getBookmark();
       const res = data;
-      console.log(res)
+      console.log(res);
       this.setState({ list: res, activeList: res[0] });
     }
   }
@@ -36,9 +36,8 @@ export class Bookmark extends Component {
         value={{
           ...this.state,
           setActiveList: this.setActiveList,
-          setList: this.setList
-        }}
-      >
+          setList: this.setList,
+        }}>
         <BookmarkContent />
       </BookmarkProvider>
     );

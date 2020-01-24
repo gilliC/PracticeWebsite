@@ -1,7 +1,7 @@
-import React from "react";
-import { SubjectListItem } from "./components/SubjectListItem";
-import { BookmarkConsumer } from "../../index";
-import { LinksListContainer } from "../LinksListContainer";
+import React from 'react';
+import { SubjectListItem } from './components/SubjectListItem';
+import { BookmarkConsumer } from '../../index';
+import { LinksListContainer } from '../LinksListContainer';
 
 export const SubjectsList = () => {
   const getArticlesListItems = context => {

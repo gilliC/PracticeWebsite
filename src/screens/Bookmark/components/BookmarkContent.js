@@ -1,10 +1,10 @@
-import React from "react";
-import { SubjectsList } from "./SubjectsList";
-import { LinksContainer } from "./LinksContainer";
-import { BookmarkConsumer } from "../index";
-import { LoadingScreen } from "./LoadingScreen";
-import { BookmarkTitle } from "./BookmarkTitle";
-import { ArticlesLinksList } from "./ArticlesLinksList.js";
+import React from 'react';
+import { SubjectsList } from './SubjectsList';
+import { LinksContainer } from './LinksContainer';
+import { BookmarkConsumer } from '../index';
+import { LoadingScreen } from './LoadingScreen';
+import { BookmarkTitle } from './BookmarkTitle';
+import { ArticlesLinksList } from './ArticlesLinksList.js';
 
 export const BookmarkContent = props => {
   return (

@@ -1,5 +1,5 @@
-import React from "react";
-import { Title } from "../../../commonComponents/texts/Title";
+import React from 'react';
+import { Title } from 'src/commonComponents/texts/Title';
 
 export const BookmarkTitle = () => {
   return (
