@@ -8,13 +8,15 @@ export const ColorsConverterContent = props => {
   const [index, setIndex] = useState(0);
   const component = getConverterByCurrentIndex(index);
   const { store } = props;
+  const { color } = store;
   const onChange = (value, event) => {
-    console.log("press")
+    console.log('press');
     setIndex(value);
   };
+
   return (
     <Container>
-      <ChooseConverterTypeButtonGroup store={store} onChange={onChange} />
+      <ChooseConverterTypeButtonGroup onChange={onChange} />
       <TransitionContainer type="FadeIn" timeout={2000}>
         {component}
       </TransitionContainer>

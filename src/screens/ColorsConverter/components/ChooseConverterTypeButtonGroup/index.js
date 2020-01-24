@@ -1,46 +1,38 @@
 import React from 'react';
-import { ConverterTypeButtonGroup as ButtonGroup } from './components/ConverterTypeButtonGroup';
-import { ConverterTypeButtonGroupLight as ButtonGroupLight } from './components/ConverterTypeButtonGroupLight';
+// import { ConverterTypeButtonGroup as ButtonGroup } from './components/ConverterTypeButtonGroup';
+// import { ConverterTypeButtonGroupLight as ButtonGroupLight } from './components/ConverterTypeButtonGroupLight';
 import { brightnessTypes } from '../../logic/consts';
-import { ConverterTypeButton } from './components/ConverterTypeButton';
+import {
+  ColorsConverterButtonGroup,
+  ColorsConverterSingleBG,
+} from '../../colorsconverter_components';
+// import { ConverterTypeButton } from './components/ConverterTypeButton';
 
 export const ChooseConverterTypeButtonGroup = props => {
   const { color, colorbrightness, onChange, store } = props;
-  console.log({onChange})
   const optionsArray = ['Hex to XTerm', 'Hex to RGBA', 'Hex to HSL'];
-  const buttonsInGroupComponents = optionsArray.map((option, index) => {
+  const params = getInitialButtonGroupParams(onChange);
+  const buttonsComponents = optionsArray.map((option, index) => {
     return (
-      <ConverterTypeButton
-        key={option}
-        store={store}
-        option={option}
-        index={index}
-        colorbrightness={colorbrightness}>
+      <ColorsConverterSingleBG
+        type="radio"
+        value={index}
+        name={index}
+        size={3}
+        key={index}
+        color={color}
+        fontSize="1.75em">
         {option}
-      </ConverterTypeButton>
+      </ColorsConverterSingleBG>
     );
   });
-
-  const initalParams = getInitialButtonGroupParams(store);
-
-  if (color && colorbrightness === brightnessTypes.SUPER_LIGHT) {
-    return (
-      <ButtonGroupLight {...initalParams} onChange={onChange}>
-        {buttonsInGroupComponents}
-      </ButtonGroupLight>
-    );
-  }
   return (
-    <ButtonGroup
-      {...initalParams}
-      onChange={() => {
-        console.log('press');
-      }}>
-      {buttonsInGroupComponents}
-    </ButtonGroup>
+    <ColorsConverterButtonGroup {...params}>
+      {buttonsComponents}
+    </ColorsConverterButtonGroup>
   );
 };
 
-const getInitialButtonGroupParams = (store) => {
-  return { type: 'radio', name: 'tbg', defaultValue: 1, ...store };
+const getInitialButtonGroupParams = onChange => {
+  return { type: 'radio', name: 'tbg', defaultValue: 1, onChange };
 };
