@@ -1,15 +1,16 @@
 import React from 'react';
-import { ColorsConverterSingleBG } from 'src/screens/ColorsConverter/colorsconverter_components';
+import { brightnessTypes } from 'src/screens/ColorsConverter/logic/consts';
+import { MainBGSingleButton as ButtonColorDark } from 'src/commonComponents/common_components';
+import { ButtonColorLight } from './components/ButtonColorLight';
 
 export const ConveterTypeButton = props => {
   const { store, option } = props;
-  const { color } = store;
+  const { color, colorbrightness } = store;
   const params = getInitialButtonParams(color, option);
-  return (
-    <ColorsConverterSingleBG {...params} {...props}>
-      {option}
-    </ColorsConverterSingleBG>
-  );
+  if (color && colorbrightness === brightnessTypes.SUPER_LIGHT) {
+    return <ButtonColorLight {...params} {...props}> {option} </ButtonColorLight>;
+  }
+  return <ButtonColorDark {...params} {...props}> {option} </ButtonColorDark>;
 };
 
 const getInitialButtonParams = (color, option) => {
@@ -18,6 +19,6 @@ const getInitialButtonParams = (color, option) => {
     size: 3,
     fontSize: '1.75em',
     color,
-    name:option,
+    name: option,
   };
 };
