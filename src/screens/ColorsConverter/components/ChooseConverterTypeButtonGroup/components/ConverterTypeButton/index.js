@@ -2,20 +2,22 @@ import React from 'react';
 import { ColorsConverterSingleBG } from 'src/screens/ColorsConverter/colorsconverter_components';
 
 export const ConveterTypeButton = props => {
-  const { color, colorbrightness, index, store } = props;
-  const params = getInitialButtonParams(index, option, color);
+  const { store, option } = props;
+  const { color } = store;
+  const params = getInitialButtonParams(color, option);
   return (
-    <ColorsConverterSingleBG {...params}>{option}</ColorsConverterSingleBG>
+    <ColorsConverterSingleBG {...params} {...props}>
+      {option}
+    </ColorsConverterSingleBG>
   );
 };
 
-const getInitialButtonParams = (index, option, color) => {
+const getInitialButtonParams = (color, option) => {
   return {
     type: 'radio',
-    value: index,
-    name: option,
     size: 3,
-    color: color,
     fontSize: '1.75em',
+    color,
+    name:option,
   };
 };

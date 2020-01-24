@@ -16,7 +16,7 @@ export const ColorsConverterContent = props => {
 
   return (
     <Container>
-      <ChooseConverterTypeButtonGroup onChange={onChange} />
+      <ChooseConverterTypeButtonGroup onChange={onChange} store={store} />
       <TransitionContainer type="FadeIn" timeout={2000}>
         {component}
       </TransitionContainer>

@@ -6,6 +6,7 @@ import {
   ColorsConverterButtonGroup,
   ColorsConverterSingleBG,
 } from '../../colorsconverter_components';
+import { ConveterTypeButton } from './components/ConverterTypeButton';
 // import { ConverterTypeButton } from './components/ConverterTypeButton';
 
 export const ChooseConverterTypeButtonGroup = props => {
@@ -14,16 +15,12 @@ export const ChooseConverterTypeButtonGroup = props => {
   const params = getInitialButtonGroupParams(onChange);
   const buttonsComponents = optionsArray.map((option, index) => {
     return (
-      <ColorsConverterSingleBG
-        type="radio"
+      <ConveterTypeButton
         value={index}
-        name={index}
-        size={3}
         key={index}
-        color={color}
-        fontSize="1.75em">
-        {option}
-      </ColorsConverterSingleBG>
+        store={store}
+        option={option}
+      />
     );
   });
   return (
