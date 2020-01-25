@@ -1,9 +1,9 @@
 import React from 'react';
-import { checkIfHex } from 'src/screens/ColorsConverter/convertingFunctions';
 import { brightnessTypes } from 'src/screens/ColorsConverter/logic/consts';
 import ConnectServer from 'src/classes/connectServer';
 import { ConvertButtonColorLight } from './components/ConvertButtonColorLight';
 import { MainButton as  ConvertButtonColorDark} from 'src/commonComponents/common_components';
+import { checkIfHex } from 'src/screens/ColorsConverter/logic/checkIfHex';
 
 export const ColorInputConvert = props => {
   const { store, setState, state, setStore } = props;

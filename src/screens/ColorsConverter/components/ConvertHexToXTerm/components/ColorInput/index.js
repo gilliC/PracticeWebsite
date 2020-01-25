@@ -1,8 +1,8 @@
 import React from 'react';
-import { getColorToHexErrors } from 'src/screens/ColorsConverter/convertingFunctions';
 import { brightnessTypes } from 'src/screens/ColorsConverter/logic/consts';
 import { ColorInputColorLight } from './components/ColorInputColorLight';
 import { ColorInputColorDark } from './components/ColorInputColorDark';
+import { getColorToHexErrors } from 'src/screens/ColorsConverter/logic/getColorToHexErrors';
 
 export const ColorInput = props => {
   const { store, setState, state } = props;
