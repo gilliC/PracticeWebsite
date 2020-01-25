@@ -8,7 +8,6 @@ import { ColorInputConvert } from './components/ColorInputConvert';
 
 export const ConvertHexToXTerm = props => {
   const [state, setState] = useState({ error: '', inputHex: '', xTerm: -1 });
-
   let { xTerm, error, hexOfXTerm } = state;
 
   return (
@@ -26,8 +25,12 @@ export const ConvertHexToXTerm = props => {
               xTerm={xTerm}
             />
             <ColorInput store={store} setState={setState} state={state} />
-
-            <ColorInputConvert store={store} setState={setState} state={state} setStore={setStore} />
+            <ColorInputConvert
+              store={store}
+              setState={setState}
+              state={state}
+              setStore={setStore}
+            />
             <MainText color="red">{error}</MainText>
           </Container>
         );
