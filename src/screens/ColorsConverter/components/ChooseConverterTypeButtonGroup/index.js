@@ -3,6 +3,7 @@ import { brightnessTypes } from '../../logic/consts';
 import { ConveterTypeButton } from './components/ConverterTypeButton';
 import { TypeButtonGroupColorDark } from './components/TypeButtonGroupColorDark';
 import { TypeButtonGroupColorLight } from './components/TypeButtonGroupColorLight';
+import { DEFAULT_VALUE } from '../../ColorsConverterContent';
 
 export const ChooseConverterTypeButtonGroup = props => {
   const { onChange, store } = props;
@@ -35,5 +36,5 @@ export const ChooseConverterTypeButtonGroup = props => {
 };
 
 const getInitialButtonGroupParams = onChange => {
-  return { type: 'radio', name: 'tbg', defaultValue: 1, onChange };
+  return { type: 'radio', name: 'tbg', defaultValue: DEFAULT_VALUE, onChange };
 };

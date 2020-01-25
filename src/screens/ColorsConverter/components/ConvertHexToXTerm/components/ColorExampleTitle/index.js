@@ -7,7 +7,7 @@ import { ResultText } from '../ResultText';
 export const ColorExampleTitle = props => {
   const { hexColor, store, xTermColor, xTerm } = props;
   return (
-    <ContainerRow height="100px" marginBottom="20px">
+    <ContainerRow height="initial" marginBottom="20px">
       <ColinRow>
         <HalfColorExample
           bgColor={hexColor}
