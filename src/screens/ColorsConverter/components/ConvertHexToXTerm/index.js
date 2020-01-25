@@ -1,10 +1,7 @@
-import React, {useState} from 'react';
-import {
-  ContainerRow,
-  MainText,
-} from 'src/commonComponents/common_components';
+import React, { useState } from 'react';
+import { ContainerRow, MainText } from 'src/commonComponents/common_components';
 import { Container } from 'src/commonComponents/Container';
-import {checkIfHex, getColorToHexErrors} from '../../convertingFunctions';
+import { checkIfHex, getColorToHexErrors } from '../../convertingFunctions';
 import {
   ColorsConverterInput,
   ColorsConverterButton,
@@ -15,15 +12,16 @@ import {
 import { ColinRow } from 'src/commonComponents/views/ColInRow';
 import { ColorsConverterConsumer } from '../..';
 import ConnectServer from 'src/classes/connectServer';
+import { ColorExampleTitle } from './components/ColorExampleTitle';
 
 export const ConvertHexToXTerm = props => {
-  const [state, setState] = useState({error: '', inputHex: '', xTerm: -1});
+  const [state, setState] = useState({ error: '', inputHex: '', xTerm: -1 });
 
   let handleHexInputChange = event => {
-    const {value} = event.target;
+    const { value } = event.target;
     let error = getColorToHexErrors(value);
-    if (error) setState({...state, error, inputHex: value});
-    else setState({...state, error, inputHex: value, xTerm: -1});
+    if (error) setState({ ...state, error, inputHex: value });
+    else setState({ ...state, error, inputHex: value, xTerm: -1 });
   };
 
   let handleSubmit = async (error, inputHex, setStore) => {
@@ -31,7 +29,7 @@ export const ConvertHexToXTerm = props => {
       const connectS = new ConnectServer();
       let res = await connectS.getColorConverterReq(inputHex, 'XTERM');
       if (res.type === 'error') {
-        setState({...setState, error: res.message || 'Something went wrong'});
+        setState({ ...setState, error: res.message || 'Something went wrong' });
         return;
       }
       const color = res;
@@ -43,38 +41,29 @@ export const ConvertHexToXTerm = props => {
         });
         return;
       }
-      setState({...state, xTerm: color.xterm, hexOfXTerm: color.hexValue});
-      setStore({color: inputHex, colorbrightness: res.level});
-    } else setState({...state, error: error || 'This is not a hex code'});
+      setState({ ...state, xTerm: color.xterm, hexOfXTerm: color.hexValue });
+      setStore({ color: inputHex, colorbrightness: res.level });
+    } else setState({ ...state, error: error || 'This is not a hex code' });
   };
 
   handleHexInputChange = handleHexInputChange.bind(this);
   handleSubmit = handleSubmit.bind(this);
-  let {xTerm, error, inputHex, hexOfXTerm} = state;
+  let { xTerm, error, inputHex, hexOfXTerm } = state;
+
   return (
     <ColorsConverterConsumer>
       {context => {
-        const {setStore, store} = context;
+        const { setStore, store } = context;
         const hexColor = store.color;
         let xTermColor = xTerm !== -1 ? hexOfXTerm : hexColor;
         return (
           <Container>
-            <ContainerRow height="100px" marginBottom="20px">
-              <ColinRow>
-                <BackgroundColorHalfDiv bgColor={hexColor} size={6} left>
-                  <ColorsConverterTitle {...store}>Color</ColorsConverterTitle>
-                </BackgroundColorHalfDiv>
-                <BiggerText color={hexColor}>Hex: {hexColor}</BiggerText>
-              </ColinRow>
-              <ColinRow>
-                <BackgroundColorHalfDiv bgColor={xTermColor} size={6} right>
-                  <ColorsConverterTitle {...store}>
-                    Converter
-                  </ColorsConverterTitle>
-                </BackgroundColorHalfDiv>
-                <BiggerText color={xTermColor}>XTerm: {xTerm}</BiggerText>
-              </ColinRow>
-            </ContainerRow>
+            <ColorExampleTitle
+              hexColor={hexColor}
+              store={store}
+              xTermColor={xTermColor}
+              xTerm={xTerm}
+            />
             <ColorsConverterInput
               placeholder="Enter the Hex code"
               {...store}
