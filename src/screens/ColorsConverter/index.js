@@ -6,7 +6,7 @@ export const ColorsConverterProvider = ColorsConverterContext.Provider;
 export const ColorsConverterConsumer = ColorsConverterContext.Consumer;
 
 export const ColorsConverter = () => {
-  const [store, setStore] = useState({ color: '', colorbrightness: '' });
+  const [store, setStore] = useState({ color: '', colorBrightness: '' });
   return (
     <ColorsConverterProvider value={{ store, setStore }}>
       <ColorsConverterConsumer>

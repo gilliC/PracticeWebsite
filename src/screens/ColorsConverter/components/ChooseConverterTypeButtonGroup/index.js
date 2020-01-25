@@ -6,7 +6,7 @@ import { TypeButtonGroupColorLight } from './components/TypeButtonGroupColorLigh
 
 export const ChooseConverterTypeButtonGroup = props => {
   const { onChange, store } = props;
-  const { color, colorbrightness } = store;
+  const { color, colorBrightness } = store;
   const optionsArray = ['Hex to XTerm', 'Hex to RGBA', 'Hex to HSL'];
   const params = getInitialButtonGroupParams(onChange);
   const buttonsComponents = optionsArray.map((option, index) => {
@@ -19,7 +19,7 @@ export const ChooseConverterTypeButtonGroup = props => {
       />
     );
   });
-  if (color && colorbrightness === brightnessTypes.SUPER_LIGHT) {
+  if (color && colorBrightness === brightnessTypes.SUPER_LIGHT) {
     return (
       <TypeButtonGroupColorLight {...params}>
         {buttonsComponents}

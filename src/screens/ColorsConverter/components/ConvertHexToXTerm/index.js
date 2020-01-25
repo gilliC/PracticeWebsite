@@ -1,28 +1,15 @@
 import React, { useState } from 'react';
-import { ContainerRow, MainText } from 'src/commonComponents/common_components';
+import { MainText } from 'src/commonComponents/common_components';
 import { Container } from 'src/commonComponents/Container';
-import { checkIfHex, getColorToHexErrors } from '../../convertingFunctions';
-import {
-  ColorsConverterInput,
-  ColorsConverterButton,
-  ColorsConverterTitle,
-  BiggerText,
-  BackgroundColorHalfDiv,
-} from '../../colorsconverter_components';
-import { ColinRow } from 'src/commonComponents/views/ColInRow';
+import { checkIfHex } from '../../convertingFunctions';
+import { ColorsConverterButton } from '../../colorsconverter_components';
 import { ColorsConverterConsumer } from '../..';
 import ConnectServer from 'src/classes/connectServer';
 import { ColorExampleTitle } from './components/ColorExampleTitle';
+import { ColorInput } from './components/ColorInput';
 
 export const ConvertHexToXTerm = props => {
   const [state, setState] = useState({ error: '', inputHex: '', xTerm: -1 });
-
-  let handleHexInputChange = event => {
-    const { value } = event.target;
-    let error = getColorToHexErrors(value);
-    if (error) setState({ ...state, error, inputHex: value });
-    else setState({ ...state, error, inputHex: value, xTerm: -1 });
-  };
 
   let handleSubmit = async (error, inputHex, setStore) => {
     if (!error && checkIfHex(inputHex)) {
@@ -42,11 +29,10 @@ export const ConvertHexToXTerm = props => {
         return;
       }
       setState({ ...state, xTerm: color.xterm, hexOfXTerm: color.hexValue });
-      setStore({ color: inputHex, colorbrightness: res.level });
+      setStore({ color: inputHex, colorBrightness: res.level });
     } else setState({ ...state, error: error || 'This is not a hex code' });
   };
 
-  handleHexInputChange = handleHexInputChange.bind(this);
   handleSubmit = handleSubmit.bind(this);
   let { xTerm, error, inputHex, hexOfXTerm } = state;
 
@@ -64,14 +50,8 @@ export const ConvertHexToXTerm = props => {
               xTermColor={xTermColor}
               xTerm={xTerm}
             />
-            <ColorsConverterInput
-              placeholder="Enter the Hex code"
-              {...store}
-              onChange={event => {
-                handleHexInputChange(event);
-              }}
-            />
-            <br />
+            <ColorInput store={store} setState={setState} state={state} />
+
             <ColorsConverterButton
               {...store}
               onClick={() => {

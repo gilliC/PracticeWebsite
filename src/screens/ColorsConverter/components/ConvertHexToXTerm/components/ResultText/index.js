@@ -5,8 +5,8 @@ import { brightnessTypes } from 'src/screens/ColorsConverter/logic/consts';
 import { MainText } from 'src/commonComponents/common_components';
 
 export const ResultText = props => {
-  const { colorbrightness, children } = props;
-  if (colorbrightness === brightnessTypes.SUPER_LIGHT) {
+  const { colorBrightness, children } = props;
+  if (colorBrightness === brightnessTypes.SUPER_LIGHT) {
     return (
       <ResultTextStyled {...props} color="black">
         {children}

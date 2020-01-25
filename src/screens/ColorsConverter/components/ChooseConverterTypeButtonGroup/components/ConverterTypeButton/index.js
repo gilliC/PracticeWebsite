@@ -5,9 +5,9 @@ import { ButtonColorLight } from './components/ButtonColorLight';
 
 export const ConveterTypeButton = props => {
   const { store, option } = props;
-  const { color, colorbrightness } = store;
+  const { color, colorBrightness } = store;
   const params = getInitialButtonParams(color, option);
-  if (color && colorbrightness === brightnessTypes.SUPER_LIGHT) {
+  if (color && colorBrightness === brightnessTypes.SUPER_LIGHT) {
     return <ButtonColorLight {...params} {...props}> {option} </ButtonColorLight>;
   }
   return <ButtonColorDark {...params} {...props}> {option} </ButtonColorDark>;

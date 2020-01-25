@@ -39,7 +39,7 @@ export default props => {
             'BRIGHTNESSLEVEL',
           );
           setState({...state, answer: color});
-          setStore({color: inputHex, colorbrightness: res.level});
+          setStore({color: inputHex, colorBrightness: res.level});
         }
       } else setState({...state, error: 'This is not a Hex code'});
     } else setState({...state, error});
