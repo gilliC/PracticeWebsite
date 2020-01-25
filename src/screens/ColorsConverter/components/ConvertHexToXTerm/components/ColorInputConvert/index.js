@@ -1,7 +1,6 @@
 import React from 'react';
 import { checkIfHex } from 'src/screens/ColorsConverter/convertingFunctions';
 import { brightnessTypes } from 'src/screens/ColorsConverter/logic/consts';
-import { ColorsConverterButton } from '../../../../colorsconverter_components';
 import ConnectServer from 'src/classes/connectServer';
 import { ConvertButtonColorLight } from './components/ConvertButtonColorLight';
 import { MainButton as  ConvertButtonColorDark} from 'src/commonComponents/common_components';

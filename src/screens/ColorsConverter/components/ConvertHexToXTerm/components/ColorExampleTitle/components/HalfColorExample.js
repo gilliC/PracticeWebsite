@@ -1,5 +1,4 @@
 import React from 'react';
-import { ColorsConverterTitle } from '../../../../../colorsconverter_components';
 import { HalfColorExampleDiv } from './HalfColorExampleDiv';
 import { ColorExampleTitle } from 'src/screens/ColorsConverter/components/ColorExampleTitle';
 
