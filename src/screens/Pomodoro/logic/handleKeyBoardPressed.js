@@ -9,28 +9,36 @@ export const PomodoroTimeIntervals = {
   LONG_BREAK: 10,
   WORK: 25,
 };
-export function handleKeyBoardPressed(context, event) {
+export function handleKeyBoardPressed(event, isWorking) {
   const { code } = event;
-  const { isWorking } = context.state;
+  const res = {
+    isRestart: false,
+    isStop: false,
+    isSpacePressed: false,
+    timeInterval: null,
+  };
   switch (code) {
     case keyCodes.SPACE:
-      context.onPressSpace();
-      break;
+      res.isSpacePressed = true;
+      return res;
     case keyCodes.R:
-      context.stopTimer();
-      context.restartTimer(PomodoroTimeIntervals.WORK);
-      break;
+      res.isStop = true;
+      res.isRestart = true;
+      res.timeInterval = PomodoroTimeIntervals.WORK;
+      return res;
     case keyCodes.L:
       if (!isWorking) {
-        context.restartTimer(PomodoroTimeIntervals.LONG_BREAK);
+        res.isRestart = true;
+        res.timeInterval = PomodoroTimeIntervals.LONG_BREAK;
       }
-      break;
+      return res;
     case keyCodes.S:
       if (!isWorking) {
-        context.restartTimer(PomodoroTimeIntervals.SHORT_BREAK);
+        res.isRestart = true;
+        res.timeInterval = PomodoroTimeIntervals.LONG_BREAK;
       }
-      break;
+      return res;
     default:
-      return;
+      return res;
   }
 }
