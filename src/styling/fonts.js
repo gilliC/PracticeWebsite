@@ -1,0 +1,1 @@
+export const HAND_WRITING_TITLE_FONT = 'Gloria Hallelujah'

@@ -1,21 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
-import {primaryColor} from '../../app_components';
+import { primaryColor } from 'src/app_components';
 
-export default props => {
-  let {minutes, seconds} = props;
-  if (minutes < 10) minutes = '0' + minutes;
-  if (seconds < 10) seconds = '0' + seconds;
-  return (
-    <TimerContainerDiv color={props.color}>
-      <h3>
-        {minutes}:{seconds}
-      </h3>
-    </TimerContainerDiv>
-  );
-};
-
-const TimerContainerDiv = styled.div`
+export const TimerContainerDiv = styled.div`
   border-width: 3px;
   border-style: solid;
   width: 35%;

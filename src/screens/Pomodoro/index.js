@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
 import Sound from 'react-sound';
-
 import ringtone from '../../assets/loving-you.mp3';
-import Timer from './TimerContainer';
-import { Title } from "../../commonComponents/texts/Title";
-import {Container} from '../../commonComponents/Container';
 import {
   primaryColor,
   secondaryColor,
   tertiaryColor,
 } from '../../app_components';
+import { PomodoroDescription } from './components/PomodoroDescription';
+import { PomodoroContainer } from './components/PomodoroContainer';
+import { Timer } from './components/Timer';
 export class Pomodoro extends Component {
   constructor(props) {
     super(props);
@@ -96,13 +94,7 @@ export class Pomodoro extends Component {
 
     return (
       <PomodoroContainer color={color}>
-        <Title color={color} fontFamily="Gloria Hallelujah">
-          Pomodoro Clock
-        </Title>
-        <p>Press Space to start the timer & to pause it.</p>
-        <p>Press R to retstart the timer</p>
-        <p>Press L for a long break</p>
-        <p>Press S for a short break</p>
+        <PomodoroDescription  color={color}/>
         <Sound
           url={ringtone}
           playStatus={playingStatus}
@@ -114,17 +106,4 @@ export class Pomodoro extends Component {
   }
 }
 
-const PomodoroContainer = styled(Container)`
-  height: auto;
-  transition: all 0.5s;
-  h1 {
-    transition: all 0.5s;
-  }
-  p {
-    color: ${props => props.color || primaryColor};
-    font-size: 1.25em;
-    text-align: left;
-    transition: all 0.5s;
-    font-family: Abel;
-  }
-`;
+
