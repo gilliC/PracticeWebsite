@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
-import { Container } from '../../commonComponents/Container';
+import { Container } from 'src/commonComponents/Container';
 import {
   ContainerRow,
   MainText,
-} from '../../commonComponents/common_components';
-import {checkIfHex, getColorToHexErrors} from './convertingFunctions';
+} from 'src/commonComponents/common_components';
+import {checkIfHex, getColorToHexErrors} from '../../convertingFunctions';
 import {
   ColorsConverterInput,
   ColorsConverterButton,
   ColorsConverterTitle,
   BackgroundColorFullDiv,
-} from './colorsconverter_components';
-import {ColorsConverterConsumer} from '.';
-import ConnectServer from '../../classes/connectServer';
+} from '../../colorsconverter_components';
+import {ColorsConverterConsumer} from '../../index';
+import ConnectServer from 'src/classes/connectServer';
 
-export default props => {
+export const ConvertHexToRgbaOrHsl = props => {
   const [state, setState] = useState({error: '', answer: '', inputHex: ''});
 
   let handleHexInputChange = event => {

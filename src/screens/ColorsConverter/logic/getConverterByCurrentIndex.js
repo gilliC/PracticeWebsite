@@ -1,6 +1,6 @@
 import React from 'react';
-import FromHexToRGBANHSL from '../FromHexToRGBAnHSL';
 import { ConvertHexToXTerm } from '../components/ConvertHexToXTerm';
+import { ConvertHexToRgbaOrHsl } from '../components/ConvertHexToRgbaOrHsl';
 
 const converterIndexes = {
   HEX_TO_EXTERM: 0,
@@ -14,10 +14,10 @@ export const getConverterByCurrentIndex = index => {
     case HEX_TO_EXTERM:
       return <ConvertHexToXTerm />;
     case HEX_TO_RGBA:
-      return <FromHexToRGBANHSL type="RGBA" key={1} />;
+      return <ConvertHexToRgbaOrHsl type="RGBA" key={1} />;
     case HEX_TO_HSL:
-      return <FromHexToRGBANHSL type="HSL" key={2} />;
+      return <ConvertHexToRgbaOrHsl type="HSL" key={2} />;
     default:
-      return <FromHexToRGBANHSL type="HSL" key={2} />;
+      return <ConvertHexToRgbaOrHsl type="RGBA" key={1} />;
   }
 };

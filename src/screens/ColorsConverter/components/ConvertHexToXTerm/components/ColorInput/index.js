@@ -8,7 +8,7 @@ export const ColorInput = props => {
   const { store, setState, state } = props;
   const handleHexInputChange = event => {
     const { value } = event.target;
-    let error = getColorToHexErrors(value);
+    const error = getColorToHexErrors(value);
     if (error) setState({ ...state, error, inputHex: value });
     else setState({ ...state, error, inputHex: value, xTerm: -1 });
   };
