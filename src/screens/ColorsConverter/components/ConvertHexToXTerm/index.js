@@ -2,21 +2,21 @@ import React, {useState} from 'react';
 import {
   ContainerRow,
   MainText,
-} from '../../commonComponents/common_components';
-import { Container } from '../../commonComponents/Container';
-import {checkIfHex, getColorToHexErrors} from './convertingFunctions';
+} from 'src/commonComponents/common_components';
+import { Container } from 'src/commonComponents/Container';
+import {checkIfHex, getColorToHexErrors} from '../../convertingFunctions';
 import {
   ColorsConverterInput,
   ColorsConverterButton,
   ColorsConverterTitle,
   BiggerText,
   BackgroundColorHalfDiv,
-} from './colorsconverter_components';
-import {ColorsConverterConsumer} from '.';
-import ConnectServer from '../../classes/connectServer';
-import { ColinRow } from '../../commonComponents/views/ColInRow';
+} from '../../colorsconverter_components';
+import { ColinRow } from 'src/commonComponents/views/ColInRow';
+import { ColorsConverterConsumer } from '../..';
+import ConnectServer from 'src/classes/connectServer';
 
-export default props => {
+export const ConvertHexToXTerm = props => {
   const [state, setState] = useState({error: '', inputHex: '', xTerm: -1});
 
   let handleHexInputChange = event => {

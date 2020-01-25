@@ -8,9 +8,7 @@ export const ColorsConverterContent = props => {
   const [index, setIndex] = useState(0);
   const component = getConverterByCurrentIndex(index);
   const { store } = props;
-  const { color } = store;
   const onChange = (value, event) => {
-    console.log('press');
     setIndex(value);
   };
 
