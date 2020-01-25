@@ -11,7 +11,7 @@ import {
   secondaryColor,
   tertiaryColor,
 } from '../../app_components';
-export default class Pomodoro extends Component {
+export class Pomodoro extends Component {
   constructor(props) {
     super(props);
     this.onPressSpace = this.onPressSpace.bind(this);
