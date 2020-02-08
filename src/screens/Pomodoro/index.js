@@ -4,14 +4,13 @@ import ringtone from '../../assets/loving-you.mp3';
 import { PomodoroDescription } from './components/PomodoroDescription';
 import { PomodoroContainer } from './components/PomodoroContainer';
 import { Timer } from './components/Timer';
-import {
-  handleKeyBoardPressed,
-  PomodoroTimeIntervals,
-} from './logic/handleKeyBoardPressed';
+import { handleKeyBoardPressed, PomodoroTimeIntervals } from './logic/handleKeyBoardPressed';
 import { getColorByTimerStatus } from './logic/getColorByTimerStatus';
+import { getMinutesAndSecondsFromCounter } from './logic/getMinutesAndSecondsFromCounter';
+import { isTimerEnded } from './logic/isTimerEnded';
 
 export const Pomodoro = props => {
-  const [count, setCount] = useState(0);
+  const [timerCounter, setCount] = useState(0);
   const [isStarted, setIsStarted] = useState(false);
   const [isWorking, setIsWorking] = useState(false);
   const [duration, setDuration] = useState(PomodoroTimeIntervals.WORK);
@@ -42,50 +41,38 @@ export const Pomodoro = props => {
     }
   };
   const onPressSpace = () => {
-    console.log('onPressSpace');
     if (!isWorking) {
       const timer = setInterval(timerFunc, 1000);
       setTimerFunc(timer);
       setIsWorking(true);
       setIsStarted(true);
     } else {
-      console.log('else');
       stopTimer();
       setIsWorking(false);
     }
   };
 
   const timerFunc = async () => {
-    const newCount = count + 1;
-    console.log('timerFunc: ' + newCount);
-    setCount(newCount)
+    setCount(prevCount => prevCount + 1);
   };
 
   const stopTimer = () => {
-    console.log('stopTimer');
     clearTimeout(timerFuncRef);
   };
 
   const restartTimer = (duration = PomodoroTimeIntervals.WORK) => {
-    console.log('restartTimer: 0');
     setCount(0);
     setIsWorking(false);
     setIsStarted(false);
     setDuration(duration);
   };
 
-  let minutesLeft = duration;
-  let secondsLeft = 0;
   let playingStatus = Sound.status.STOPPED;
   const color = getColorByTimerStatus(duration, isWorking);
-  if (isStarted) {
-    minutesLeft = Math.ceil(duration - 1 - count / 60);
-    if (minutesLeft < 0) minutesLeft = 0;
-    secondsLeft = Math.round(59 - (count % 60));
-    if (minutesLeft === 0 && secondsLeft === 0) {
-      stopTimer();
-      playingStatus = Sound.status.PLAYING;
-    }
+  const { minutesLeft, secondsLeft } = getMinutesAndSecondsFromCounter(isStarted, duration, timerCounter);
+  if (isTimerEnded(minutesLeft,secondsLeft)) {
+    stopTimer();
+    playingStatus = Sound.status.PLAYING;
   }
 
   return (

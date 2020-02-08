@@ -35,7 +35,7 @@ export function handleKeyBoardPressed(event, isWorking) {
     case keyCodes.S:
       if (!isWorking) {
         res.isRestart = true;
-        res.timeInterval = PomodoroTimeIntervals.LONG_BREAK;
+        res.timeInterval = PomodoroTimeIntervals.SHORT_BREAK;
       }
       return res;
     default:
