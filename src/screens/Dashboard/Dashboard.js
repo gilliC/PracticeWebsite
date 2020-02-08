@@ -7,13 +7,13 @@ import {
   fetchTasksLoggedIn,
   fetchTasksNotLogged,
 } from './reduxFiles/dashboardActions';
-import {ColinRow} from '../../components/common_components';
-import Carousel from '../../components/Carousel';
+import Carousel from '../../commonComponents/Carousel';
 import {DashboardSecondPart} from './dashboard_components';
 import TasksList from './TasksList';
 import PieChart from './TasksPieChart';
 import TimelineBar from './TasksTimelineChart';
 import LogIn from './LogIn';
+import { ColinRow } from '../../commonComponents/views/ColInRow';
 
 class Dashboard extends Component {
   constructor(props) {

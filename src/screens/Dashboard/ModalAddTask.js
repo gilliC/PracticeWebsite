@@ -6,8 +6,8 @@ import moment from 'moment';
 
 import {addTask} from './reduxFiles/dashboardActions';
 import {formatDate} from '../../services/functions';
-import DatePickerItem from '../../components/DatePickerItem';
-import {MainInput} from '../../components/common_components';
+import DatePickerItem from '../../commonComponents/DatePickerItem';
+import {MainInput} from '../../commonComponents/common_components';
 import {
   ModalContainer,
   ModalBtnContainer,

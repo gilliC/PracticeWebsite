@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "module": "commonJS",
+    "jsx": "react",
+    "baseUrl": "./",
+    // "paths": {
+    //   "~/*": ["*"]
+    // }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"],
+}
